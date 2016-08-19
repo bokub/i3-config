@@ -1,0 +1,41 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "none",
+    "current_border_width": 0,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1035,
+       "width": 1007,
+       "x": 0,
+       "y": 0
+    },
+    "name": "Courrier entrant - Mozilla Thunderbird",
+    "percent": 0.8,
+    "swallows": [
+       {
+       "class": "^Thunderbird$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "none",
+    "current_border_width": 0,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1035,
+       "width": 942,
+       "x": 12,
+       "y": 33
+    },
+    "name": "Liste de contacts",
+    "percent": 0.2,
+    "swallows": [
+       {
+       "class": "^Pidgin$"
+       }
+    ],
+    "type": "con"
+}
+

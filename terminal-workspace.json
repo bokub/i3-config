@@ -1,0 +1,157 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "none",
+    "current_border_width": 0,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 410,
+       "width": 722,
+       "x": 0,
+       "y": 0
+    },
+    "name": "Terminal",
+    "percent": 0.5,
+    "swallows": [
+       {
+       "class": "^Gnome\\-terminal$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    // splitv split container with 2 children
+    "border": "none",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "none",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 410,
+               "width": 722,
+               "x": 0,
+               "y": 0
+            },
+            "name": "bkubiak@devatics-Boris: ~",
+            "percent": 0.5,
+            "swallows": [
+               {
+               "class": "^Gnome\\-terminal$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            // splith split container with 2 children
+            "border": "none",
+            "floating": "auto_off",
+            "layout": "splith",
+            "percent": 0.5,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "none",
+                    "current_border_width": 0,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 410,
+                       "width": 722,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "bkubiak@devatics-Boris: ~",
+                    "percent": 0.6,
+                    "swallows": [
+                       {
+                       "class": "^Gnome\\-terminal$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    // splitv split container with 2 children
+                    "border": "none",
+                    "floating": "auto_off",
+                    "layout": "splitv",
+                    "percent": 0.4,
+                    "type": "con",
+                    "nodes": [
+                        {
+                            "border": "none",
+                            "current_border_width": 0,
+                            "floating": "auto_off",
+                            "geometry": {
+                               "height": 410,
+                               "width": 722,
+                               "x": 0,
+                               "y": 0
+                            },
+                            "name": "bkubiak@devatics-Boris: ~",
+                            "percent": 0.3,
+                            "swallows": [
+                               {
+                               "window_role": "^clock$"
+                               }
+                            ],
+                            "type": "con"
+                        },
+                        {
+                            // splitv split container with 2 children
+                            "border": "none",
+                            "floating": "auto_off",
+                            "layout": "splitv",
+                            "percent": 0.7,
+                            "type": "con",
+                            "nodes": [
+                                {
+                                    "border": "none",
+                                    "current_border_width": 0,
+                                    "floating": "auto_off",
+                                    "geometry": {
+                                       "height": 410,
+                                       "width": 722,
+                                       "x": 0,
+                                       "y": 0
+                                    },
+                                    "name": "Terminal",
+                                    "percent": 0.4,
+                                    "swallows": [
+                                       {
+                                       "window_role": "^htop$"
+                                       }
+                                    ],
+                                    "type": "con"
+                                },
+                                {
+                                    "border": "none",
+                                    "current_border_width": 0,
+                                    "floating": "auto_off",
+                                    "geometry": {
+                                       "height": 410,
+                                       "width": 722,
+                                       "x": 0,
+                                       "y": 0
+                                    },
+                                    "name": "cava",
+                                    "percent": 0.6,
+                                    "swallows": [
+                                       {
+                                       "window_role": "^eq$"
+                                       }
+                                    ],
+                                    "type": "con"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+

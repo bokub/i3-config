@@ -1,0 +1,110 @@
+separator_block_width=25
+
+[disk-root]
+label=    
+command=/usr/lib/i3blocks/disk /
+interval=60
+color=##8BE9FD
+
+[memory]
+label=Mem 
+command=/usr/lib/i3blocks/memory
+interval=15
+color=#FF79C6
+
+[cpu]
+label=CPU 
+command=/usr/lib/i3blocks/cpu_usage
+interval=5
+color=#FF5555
+
+
+# [swap]
+# label=Swap:
+# command=/usr/lib/i3blocks/memory swap
+# interval=30
+
+# [Weather]
+# command=~/.i3/IconicWeather.sh "31000"
+# interval=1800
+# color=#e97ac8
+
+
+# [mail]
+# label= 
+# command=~/.i3/.mail.sh.x
+# interval=100
+# color=#7F00FF 
+
+
+
+# [disk-home]
+# label=:
+# command=/usr/lib/i3blocks/disk $HOME
+# interval=30
+# color=#859900
+
+# [ssid]
+# label=
+# command=echo "$(iw dev wlo1 link | grep SSID | cut -d " " -f 2-)"
+# color=#d33682
+# interval=5
+
+# [wireless]
+# label=W
+# instance=wlo1
+# command=/usr/lib/i3blocks/iface
+# color=#00FF00
+# interval=10
+
+# [ethernet]
+# label=E
+# instance=eno1
+# command=/usr/lib/i3blocks/network
+# color=#00FF00
+# interval=10
+
+# [strength]
+# command=echo "$(iw dev wlo1 link | grep signal | cut -d " " -f 2-)"
+# interval=10
+# color=#cb4b16
+
+# [temp]
+# label=
+# command=echo "$(sensors coretemp-isa-0000 | awk '/Physical/ {print $4}')"
+# interval=10
+# color=#b58900
+
+
+
+# [battery]
+#label=BAT
+#label=⚡
+#command=/usr/lib/i3blocks/battery BAT0
+# command=~/.i3/battery BAT0
+
+# interval=30
+
+[load]
+label=     
+command=/usr/lib/i3blocks/load_average
+interval=10
+color=#BD93F9
+
+
+[volume]
+label=    
+command=/usr/lib/i3blocks/volume
+interval=2
+signal=10
+color=#FFB86C
+
+
+[time]
+# command-date " %a %m-%d-%y %l:%M:%S %p"
+label=    
+command=date '+%a %d-%m-%y %R:%S %p'
+interval=1
+color=#50FA7B
+
+
