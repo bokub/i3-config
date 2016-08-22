@@ -111,9 +111,7 @@ bindsym $mod+Shift+h exec "i3-nagbar -t warning -m 'Shutdown ?' -b 'Yeah, sure' 
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # same bindings, but for the arrow keys
+        # arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
@@ -127,60 +125,27 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-#Gaps
+# Gaps size
 gaps inner 12
 gaps outer 0
-# smart_gaps off
 
 
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
-
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
-
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
-
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
+# Workspace names
+set $w1 1 :  chromium
+set $w2 2 :  terminal
+set $w3 3 :  code
+set $w4 4 :  messaging
 
 
-
-## CUSTOM
-
-# lock screen command
+# Lock screen command
 bindsym $mod+l exec --no-startup-id lock
 
+
+# Move worspace on left or right screen
 bindsym $mod+j move workspace to output left
 bindsym $mod+k move workspace to output right
 
-#dual screen 
+# Dual screen 
 exec_always --no-startup-id xrandr --output HDMI1 --auto --right-of DP1
 
 # Wallpaper
@@ -189,52 +154,62 @@ exec_always --no-startup-id nitrogen --restore
 # Notif
 exec_always --no-startup-id"killall -q dunst; dunst -config ~/.config/i3/notif"
 
-
+# Options
 popup_during_fullscreen leave_fullscreen
 popup_during_fullscreen leave_fullscreen
 workspace_auto_back_and_forth no
 
-# no border
+# No border
 new_window none
 
-## Assign
-assign [class="chromium-browser"] → 1 :  chromium
-assign [class="jetbrains-phpstorm"] → 3 :  code
-assign [class="jetbrains-webstorm"] → 3 :  code
-assign [class="Pidgin"] → 4 :  messaging
-assign [class="Thunderbird"] → 4 :  messaging
+# Assign apps to workspaces
+assign [class="chromium-browser"] → $w1
+assign [class="jetbrains-phpstorm"] → $w3
+assign [class="jetbrains-webstorm"] → $w3
+assign [class="Pidgin"] → $w4
+assign [class="Thunderbird"] → $w4
 
-workspace "1 :  chromium" output DP1
-workspace "2 :  terminal" output HDMI1
-workspace "3 :  code" output HDMI1
-workspace "4 :  messaging" output DP1
+# Assign workspaces to output
+workspace "$w1" output DP1
+workspace "$w2" output HDMI1
+workspace "$w3" output HDMI1
+workspace "$w4" output DP1
 
-
+# Auto-rename command
 bindsym $mod+Shift+n \
-rename workspace 1 to 1 :  chromium; \
-rename workspace 2 to 2 :  terminal; \
-rename workspace 3 to 3 :  code; \
-rename workspace 4 to 4 :  messaging
+rename workspace 1 to $w1; \
+rename workspace 2 to $w2; \
+rename workspace 3 to $w3; \
+rename workspace 4 to $w4
 
-bindsym $mod+m workspace 4 :  messaging;append_layout ~/.config/i3/messaging-workspace.json; \
+# Start default apps with correct layouts
+bindsym $mod+m workspace $w4; \
+append_layout ~/.config/i3/messaging-workspace.json; \
 exec --no-startup-id thunderbird; \
 exec pidgin; \
-exec --no-startup-id chromium-browserO
+exec --no-startup-id chromium-browser; \
+rename workspace 2 to $w2; \
+workspace $w2; \
+$terminalWorkspaceInit; \
+workspace $w1
 
+# Init terminal workspace with 6 windows
+set $terminalWorkspaceInit append_layout ~/.config/i3/terminal-workspace.json;\
+exec "sh -c 'sleep 0.1; exec gnome-terminal'"; \
+exec "sh -c 'sleep 0.2; exec gnome-terminal'"; \
+exec "sh -c 'sleep 0.3; exec gnome-terminal'"; \
+exec "sh -c 'sleep 0.4; exec gnome-terminal --role=clock -e tty-clock'"; \
+exec "sh -c 'sleep 0.5; exec gnome-terminal --role=htop -e htop'"; \
+exec "sh -c 'sleep 0.6; exec gnome-terminal --role=eq -e cava'"; \
 
-bindsym $mod+Shift+l append_layout ~/.config/i3/terminal-workspace.json;\
-exec --no-startup-id "sh -c 'sleep 0.1; exec gnome-terminal'"; \
-exec --no-startup-id "sh -c 'sleep 0.2; exec gnome-terminal'"; \
-exec --no-startup-id "sh -c 'sleep 0.3; exec gnome-terminal'"; \
-exec --no-startup-id "sh -c 'sleep 0.4; exec gnome-terminal --role=clock -e tty-clock'"; \
-exec --no-startup-id "sh -c 'sleep 0.5; exec gnome-terminal --role=htop -e htop '"; \
-exec --no-startup-id "sh -c 'sleep 0.6; exec gnome-terminal --role=eq -e cava'"
+# Terminal workspace shortcut
+bindsym $mod+Shift+l $terminalWorkspaceInit;
 
-
+# Rename workspace shorcut
 bindsym $mod+n exec "~/.config/i3/rename-workspace.sh"
 
 
-# Bar
+# Bar appearance
 bar {
   font pango:Source Sans Pro-10 10
         status_command i3blocks -c ~/.config/i3/i3blocks
