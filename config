@@ -122,9 +122,10 @@ set $w2 2 :  terminal
 set $w3 3 :  code
 set $w4 4 :  messaging
 
-
-# Lock screen command
-bindsym $mod+l exec --no-startup-id lock
+# Options
+popup_during_fullscreen leave_fullscreen
+popup_during_fullscreen leave_fullscreen
+workspace_auto_back_and_forth no
 
 # Kill window on middle-button click
 bindsym --whole-window $mod+button2 kill
@@ -132,6 +133,10 @@ bindsym --whole-window $mod+button2 kill
 # Move worspace on left or right screen
 bindsym $mod+j move workspace to output left
 bindsym $mod+k move workspace to output right
+
+
+# Lock screen command
+bindsym $mod+l exec --no-startup-id lock
 
 # Dual screen 
 exec_always --no-startup-id xrandr --output HDMI1 --auto --right-of DP1
@@ -145,13 +150,11 @@ exec_always --no-startup-id"killall -q dunst; dunst -config ~/.config/i3/notif"
 # Dmenu
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-# Options
-popup_during_fullscreen leave_fullscreen
-popup_during_fullscreen leave_fullscreen
-workspace_auto_back_and_forth no
-
 # No border
 new_window none
+
+# Compton
+exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/compton.conf -b"
 
 # Assign apps to workspaces
 assign [class="chromium-browser"] → $w1

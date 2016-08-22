@@ -9,4 +9,5 @@ All these files should be placed in `~/.config/i3`
 
 - [i3-gaps](https://github.com/Airblader/i3)
 - [i3blocks](https://github.com/vivien/i3blocks)
+- [Compton](https://github.com/chjj/compton)
 - [Font Awesome](http://fontawesome.io/)
