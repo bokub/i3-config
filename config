@@ -50,8 +50,8 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+z layout tabbed
+# bindsym $mod+s layout stacking
+# bindsym $mod+z layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -154,7 +154,7 @@ bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 new_window none
 
 # Compton
-exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/compton.conf -b"
+exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/compton.conf"
 
 # Assign apps to workspaces
 assign [class="chromium-browser"] → $w1
@@ -180,8 +180,9 @@ rename workspace 4 to $w4
 bindsym $mod+m workspace $w4; \
 append_layout ~/.config/i3/messaging-workspace.json; \
 exec --no-startup-id thunderbird; \
-exec pidgin; \
+exec --no-startup-id pidgin; \
 exec --no-startup-id chromium-browser; \
+exec --no-startup-id pidgin; \
 rename workspace 2 to $w2; \
 workspace $w2; \
 $terminalWorkspaceInit; \
