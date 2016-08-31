@@ -136,7 +136,7 @@ bindsym $mod+k move workspace to output right
 
 
 # Lock screen command
-bindsym $mod+l exec --no-startup-id lock
+bindsym $mod+l exec lock
 
 # Dual screen 
 exec_always --no-startup-id xrandr --output HDMI1 --auto --right-of DP1
@@ -145,7 +145,7 @@ exec_always --no-startup-id xrandr --output HDMI1 --auto --right-of DP1
 exec_always --no-startup-id nitrogen --restore
 
 # Notif
-exec_always --no-startup-id"killall -q dunst; dunst -config ~/.config/i3/notif"
+exec_always --no-startup-id "killall -q dunst; dunst -config ~/.config/i3/notif"
 
 # Dmenu
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
@@ -155,6 +155,9 @@ new_window none
 
 # Compton
 exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/compton.conf"
+
+# RescueTime
+exec_always --no-startup-id "killall -q rescuetime; exec rescuetime"
 
 # Assign apps to workspaces
 assign [class="chromium-browser"] → $w1
