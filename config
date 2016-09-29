@@ -110,6 +110,20 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+set $mode_launch Chromium | Phpstorm | Brackets | Sublime | Nautilus
+
+mode "$mode_launch" {
+    bindsym c exec --no-startup-id chromium-browser ; mode "default"
+    bindsym n exec --no-startup-id nautilus ; mode "default"
+    bindsym b exec --no-startup-id brackets ; mode "default"
+    bindsym s exec --no-startup-id subl ; mode "default"
+    bindsym p exec --no-startup-id sh -c ~/PhpStorm-145.1616.3/bin/phpstorm.sh ; mode "default"
+
+    bindsym Escape mode "default"
+}
+bindsym $mod+Tab mode "$mode_launch"
+
+
 
 # Gaps size
 gaps inner 12
@@ -155,9 +169,6 @@ new_window none
 
 # Compton
 exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/compton.conf"
-
-# RescueTime
-exec_always --no-startup-id "killall -q rescuetime; exec rescuetime"
 
 # Assign apps to workspaces
 assign [class="chromium-browser"] → $w1
@@ -230,4 +241,3 @@ client.focused #81a2be #81a2be #1d1f21 #282a2e
 client.focused_inactive #373b41 #373b41 #969896 #282a2e
 client.unfocused #282a2e #282a2e #969896 #282a2e
 client.urgent #373b41 #cc6666 #ffffff #cc6666
-
