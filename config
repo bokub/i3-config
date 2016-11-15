@@ -117,13 +117,12 @@ mode "$mode_launch" {
     bindsym n exec --no-startup-id nautilus ; mode "default"
     bindsym b exec --no-startup-id brackets ; mode "default"
     bindsym s exec --no-startup-id subl ; mode "default"
-    bindsym p exec --no-startup-id sh -c ~/PhpStorm-145.1616.3/bin/phpstorm.sh ; mode "default"
-    bindsym w exec --no-startup-id sh -c ~/WebStorm-162.1121.31/bin/webstorm.sh ; mode "default"
+    bindsym p exec --no-startup-id sh -c ~/.phpstorm/bin/phpstorm.sh ; mode "default"
+    bindsym w exec --no-startup-id sh -c ~/.webstorm/bin/webstorm.sh ; mode "default"
 
     bindsym Escape mode "default"
 }
 bindsym $mod+Tab mode "$mode_launch"
-
 
 
 # Gaps size
@@ -151,7 +150,7 @@ bindsym $mod+k move workspace to output right
 
 
 # Lock screen command
-bindsym $mod+l exec lock
+bindsym $mod+l exec "notify-send -u critical -t 100 ' Screen locked' && lock"
 
 # Dual screen 
 exec_always --no-startup-id xrandr --output HDMI1 --auto --right-of DP1
