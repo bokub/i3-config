@@ -107,7 +107,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Quick Lauch mode
-set $mode_launch Chromium | Phpstorm | Brackets | Sublime | Nautilus | Webstorm | Adobe PS CS6
+set $mode_launch Chromium | Phpstorm | Brackets | Sublime | Nautilus | Webstorm | Gogland | Adobe PS CS6
 mode "$mode_launch" {
     bindsym c exec --no-startup-id chromium-browser ; mode "default"
     bindsym n exec --no-startup-id nautilus ; mode "default"
@@ -115,6 +115,7 @@ mode "$mode_launch" {
     bindsym s exec --no-startup-id subl ; mode "default"
     bindsym p exec --no-startup-id sh -c ~/.phpstorm/bin/phpstorm.sh ; mode "default"
     bindsym w exec --no-startup-id sh -c ~/.webstorm/bin/webstorm.sh ; mode "default"
+    bindsym g exec --no-startup-id sh -c ~/.gogland/bin/gogland.sh ; mode "default"
     bindsym a exec --no-startup-id /usr/share/playonlinux/playonlinux --run "Adobe Photoshop CS6" %F ; mode "default"
 
     bindsym Escape mode "default"
@@ -182,6 +183,7 @@ exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/c
 assign [class="chromium-browser"] → $w1
 assign [class="jetbrains-phpstorm"] → $w3
 assign [class="jetbrains-webstorm"] → $w3
+assign [class="jetbrains-gogland"] → $w3
 assign [class="Pidgin"] → $w4
 assign [class="Thunderbird"] → $w4
 
@@ -245,6 +247,7 @@ bar {
     inactive_workspace #282a2e #282a2e #969896
     urgent_workspace #cc6666 #cc6666 #ffffff
   }
+  verbose yes
 }
 
 client.focused #81a2be #81a2be #1d1f21 #282a2e
