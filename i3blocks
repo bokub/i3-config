@@ -1,10 +1,22 @@
 separator_block_width=25
 
+[velib-work]
+label=    
+command= printf "`curl -s 'https://api.jcdecaux.com/vls/v1/stations/41?contract=toulouse&apiKey='$JCD_API | jq -r '.available_bikes'` / 21"
+interval=60
+color=#6EDDA4
+
+[velib-home]
+label=    
+command= printf "`curl -s 'https://api.jcdecaux.com/vls/v1/stations/195?contract=toulouse&apiKey='$JCD_API | jq -r '.available_bikes'` / 18"
+interval=60
+color=#F9E060
+
 [disk-root]
 label=    
 command=/usr/lib/i3blocks/disk /
 interval=60
-color=##8BE9FD
+color=#8BE9FD
 
 [memory]
 label=Mem 
@@ -106,5 +118,4 @@ label=
 command=date '+%a %d-%m-%y %R:%S %p'
 interval=1
 color=#50FA7B
-
 
