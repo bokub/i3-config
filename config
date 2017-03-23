@@ -179,6 +179,10 @@ new_window none
 # Compton
 exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/compton.conf"
 
+# Screenshot
+bindsym Print exec --no-startup-id gnome-screenshot --interactive
+exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/compton.conf"
+
 # Assign apps to workspaces
 assign [class="chromium-browser"] → $w1
 assign [class="jetbrains-phpstorm" window_type="normal"] → $w3
