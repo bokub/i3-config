@@ -1,5 +1,17 @@
 separator_block_width=25
 
+[evening]
+label=   
+command= secs=$(( $(date --date="Today 18" +%s) - $(date +%s) )) && printf '%dh %dm %ds\n' $(($secs/3600)) $(($secs%3600/60)) $(($secs%60))
+interval=1
+color=#BCC0FF
+
+[weekend]
+label=   
+command= secs=$(( $(date --date="Fri. + 18 hours" +%s) - $(date +%s) )) && printf '%dd %dh %dm %ds\n' $(($secs/86400)) $(($secs%86400/3600)) $(($secs%3600/60)) $(($secs%60))
+interval=1
+color=#F99D9F
+
 [velib-work]
 label=    
 command= printf "`curl -s 'https://api.jcdecaux.com/vls/v1/stations/41?contract=toulouse&apiKey='$JCD_API | jq -r '.available_bikes'` / 21"
@@ -19,13 +31,13 @@ interval=60
 color=#8BE9FD
 
 [memory]
-label=Mem 
+label=    
 command=/usr/lib/i3blocks/memory
 interval=15
 color=#FF79C6
 
 [cpu]
-label=CPU 
+label=    
 command=/usr/lib/i3blocks/cpu_usage
 interval=5
 color=#FF5555
@@ -41,14 +53,11 @@ color=#FF5555
 # interval=1800
 # color=#e97ac8
 
-
 # [mail]
 # label= 
 # command=~/.i3/.mail.sh.x
 # interval=100
 # color=#7F00FF 
-
-
 
 # [disk-home]
 # label=:
@@ -87,8 +96,6 @@ color=#FF5555
 # interval=10
 # color=#b58900
 
-
-
 # [battery]
 #label=BAT
 #label=⚡
@@ -115,7 +122,7 @@ color=#FFB86C
 [time]
 # command-date " %a %m-%d-%y %l:%M:%S %p"
 label=    
-command=date '+%a %d-%m-%y %R:%S %p'
+command=date '+%a %d %b %R:%S %p'
 interval=1
-color=#50FA7B
+color=#96FAAA
 
