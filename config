@@ -228,6 +228,10 @@ exec "sh -c 'sleep 0.5; exec gnome-terminal --role=htop -e htop'"; \
 exec "sh -c 'sleep 0.6; exec gnome-terminal --role=eq -e cava'"; \
 exec --no-startup-id "sh -c 'sleep 0.7; compton --config ~/.config/i3/compton.conf'"; \
 
+# exec "sh -c 'sleep 0.6; exec gnome-terminal --role=eq -e cava'"; \
+# exec "sh -c 'sleep 0.6; exec gnome-terminal --role=eq -e ~/.scripts/weather.sh'"; \
+
+
 # Terminal workspace shortcut
 bindsym $mod+Shift+l $terminalWorkspaceInit;
 
