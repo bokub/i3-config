@@ -1,14 +1,14 @@
 separator_block_width=25
 
-[evening]
-label=   
-command= secs=$(( $(date --date="Today 18" +%s) - $(date +%s) )) && printf '%dh %dm %ds\n' $(($secs/3600)) $(($secs%3600/60)) $(($secs%60))
+[worked]
+label=   
+command= DATE=$(date +%d-%m-%y) && FILE="/home/bkubiak/.scripts/time/$DATE.log" && if [ -f $FILE ]; then SECS=$(cat $FILE) && printf '%dh %dm %ds\n' $(($SECS/3600)) $(($SECS%3600/60)) $(($SECS%60)); fi
 interval=1
 color=#BCC0FF
 
 [weekend]
 label=   
-command= secs=$(( $(date --date="Fri. + 18 hours" +%s) - $(date +%s) )) && printf '%dd %dh %dm %ds\n' $(($secs/86400)) $(($secs%86400/3600)) $(($secs%3600/60)) $(($secs%60))
+command= SECS=$(( $(date --date="Fri. + 18 hours" +%s) - $(date +%s) )) && printf '%dd %dh %dm %ds\n' $(($SECS/86400)) $(($SECS%86400/3600)) $(($SECS%3600/60)) $(($SECS%60))
 interval=1
 color=#F99D9F
 
@@ -41,7 +41,6 @@ label=
 command=/usr/lib/i3blocks/cpu_usage
 interval=5
 color=#FF5555
-
 
 # [swap]
 # label=Swap:
