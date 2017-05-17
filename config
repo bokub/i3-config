@@ -171,7 +171,10 @@ exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id "killall -q dunst; dunst -config ~/.config/i3/notif"
 
 # Dmenu
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# Use rofi, not dmenu
+bindsym $mod+d exec --no-startup-id rofi -show run -config ~/.config/i3/rofi;
 
 # No border
 new_window none
@@ -219,7 +222,7 @@ $terminalWorkspaceInit; \
 workspace $w1
 
 # Init terminal workspace with 6 windows
-set $terminalWorkspaceInit append_layout ~/.config/i3/terminal-workspace.json;\
+set $terminalWorkspaceInit append_layout ~/.config/i3/terminal-workspace.json; \
 exec "sh -c 'sleep 0.1; exec gnome-terminal'"; \
 exec "sh -c 'sleep 0.2; exec gnome-terminal'"; \
 exec "sh -c 'sleep 0.3; exec gnome-terminal'"; \
@@ -230,7 +233,6 @@ exec --no-startup-id "sh -c 'sleep 0.7; compton --config ~/.config/i3/compton.co
 
 # exec "sh -c 'sleep 0.6; exec gnome-terminal --role=eq -e cava'"; \
 # exec "sh -c 'sleep 0.6; exec gnome-terminal --role=eq -e ~/.scripts/weather.sh'"; \
-
 
 # Terminal workspace shortcut
 bindsym $mod+Shift+l $terminalWorkspaceInit;
