@@ -174,7 +174,8 @@ exec_always --no-startup-id "killall -q dunst; dunst -config ~/.config/i3/notif"
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # Use rofi, not dmenu
-bindsym $mod+d exec --no-startup-id rofi -show run -config ~/.config/i3/rofi;
+bindsym $mod+d exec --no-startup-id "rofi -show drun -config ~/.config/i3/rofi";
+bindsym $mod+w exec --no-startup-id "~/.config/i3/select-workspace.sh";
 
 # No border
 new_window none
@@ -231,9 +232,6 @@ exec "sh -c 'sleep 0.5; exec gnome-terminal --role=htop -e htop'"; \
 exec "sh -c 'sleep 0.6; exec gnome-terminal --role=eq -e cava'"; \
 exec --no-startup-id "sh -c 'sleep 0.7; compton --config ~/.config/i3/compton.conf'"; \
 
-# exec "sh -c 'sleep 0.6; exec gnome-terminal --role=eq -e cava'"; \
-# exec "sh -c 'sleep 0.6; exec gnome-terminal --role=eq -e ~/.scripts/weather.sh'"; \
-
 # Terminal workspace shortcut
 bindsym $mod+Shift+l $terminalWorkspaceInit;
 
@@ -243,22 +241,22 @@ bindsym $mod+n exec "~/.config/i3/rename-workspace.sh"
 
 # Bar appearance
 bar {
-  font pango:Source Sans Pro 10, FontAwesome 10
-        status_command i3blocks -c ~/.config/i3/i3blocks
-        position top
-        tray_output primary
-        mode dock
-        hidden_state show
-  colors {
-    separator #969896
-    background #1d1f21
-    statusline #c5c8c6
-    focused_workspace #81a2be #81a2be #1d1f21
-    active_workspace #373b41 #373b41 #ffffff
-    inactive_workspace #282a2e #282a2e #969896
-    urgent_workspace #cc6666 #cc6666 #ffffff
-  }
-  verbose yes
+    font pango:FontAwesome 10
+    status_command i3blocks -c ~/.config/i3/i3blocks
+    position top
+    tray_output primary
+    mode dock
+    hidden_state show
+    verbose yes
+    colors {
+        separator #969896
+        background #1d1f21
+        statusline #c5c8c6
+        focused_workspace #81a2be #81a2be #1d1f21
+        active_workspace #373b41 #373b41 #ffffff
+        inactive_workspace #282a2e #282a2e #969896
+        urgent_workspace #cc6666 #cc6666 #ffffff
+    }
 }
 
 client.focused #81a2be #81a2be #1d1f21 #282a2e

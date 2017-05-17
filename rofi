@@ -1,4 +1,5 @@
 # rofi.location: 1
+# rofi.font: "Source Sans Pro 10"
 rofi.lines: 5
 rofi.color-enabled: true
 rofi.color-window: #273238, #273238, #1e2529
