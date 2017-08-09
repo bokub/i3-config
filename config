@@ -159,7 +159,7 @@ bindsym $mod+j move workspace to output left
 bindsym $mod+k move workspace to output right
 
 # Lock screen command
-bindsym $mod+l exec "notify-send -u critical -t 100 ' Screen locked' && lock"
+bindsym $mod+l exec "pkill -u $USER -USR1 dunst && lock && pkill -u $USER -USR2 dunst"
 
 # Dual screen 
 exec_always --no-startup-id xrandr --output HDMI1 --auto --right-of DP1
@@ -230,7 +230,7 @@ exec "sh -c 'sleep 0.3; exec gnome-terminal'"; \
 exec "sh -c 'sleep 0.4; exec gnome-terminal --role=clock -e tty-clock'"; \
 exec "sh -c 'sleep 0.5; exec gnome-terminal --role=htop -e htop'"; \
 exec "sh -c 'sleep 0.6; exec gnome-terminal --role=eq -e cava'"; \
-exec --no-startup-id "sh -c 'sleep 0.7; compton --config ~/.config/i3/compton.conf'"; \
+exec --no-startup-id "sh -c 'sleep 1; compton --config ~/.config/i3/compton.conf'"; \
 
 # Terminal workspace shortcut
 bindsym $mod+Shift+l $terminalWorkspaceInit;
