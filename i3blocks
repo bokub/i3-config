@@ -109,6 +109,13 @@ command=/usr/lib/i3blocks/load_average
 interval=10
 color=#BD93F9
 
+[bandwidth]
+label=
+command=/usr/lib/i3blocks/bandwidth2  -t 2 -w 307200:30720 -c 512000:51200
+interval=persist
+markup=pango
+min_width=160
+align=center
 
 [volume]
 label=    
