@@ -1,6 +1,6 @@
 [global]
     #font = Monospace 8
-    font = Droid Sans 10
+    font = Source Sans Pro 10, FontAwesome 10
     
     # Allow a small subset of html markup:
     #   <b>bold</b>
