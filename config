@@ -48,15 +48,15 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-# bindsym $mod+s layout stacking
-# bindsym $mod+z layout tabbed
+bindsym $mod+s layout stacking
+bindsym $mod+z layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
  bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-# bindsym $mod+space focus mode_toggle
+bindsym $mod+space focus mode_toggle
 
 # switch to workspace
 bindsym $mod+ampersand workspace number 1
@@ -162,7 +162,7 @@ bindsym $mod+k move workspace to output right
 bindsym $mod+l exec "pkill -u $USER -USR1 dunst && lock && pkill -u $USER -USR2 dunst"
 
 # Dual screen 
-exec_always --no-startup-id xrandr --output HDMI1 --auto --right-of DP1
+exec_always --no-startup-id xrandr --output HDMI-1 --auto --right-of DP-1
 
 # Wallpaper
 exec_always --no-startup-id nitrogen --restore
@@ -196,10 +196,10 @@ assign [class="Pidgin"] → $w4
 assign [class="Thunderbird"] → $w4
 
 # Assign workspaces to output
-workspace "$w1" output DP1
-workspace "$w2" output HDMI1
-workspace "$w3" output HDMI1
-workspace "$w4" output DP1
+workspace "$w1" output DP-1
+workspace "$w2" output HDMI-1
+workspace "$w3" output HDMI-1
+workspace "$w4" output DP-1
 
 for_window [class="Photoshop.exe" window_type="normal"] floating enable,  resize set 1920 1080 
 
