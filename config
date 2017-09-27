@@ -183,9 +183,14 @@ new_window none
 # Compton
 exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/compton.conf"
 
+# Enable themes
+exec_always --no-startup-id mate-settings-daemon
+
 # Screenshot
 bindsym Print exec --no-startup-id gnome-screenshot --interactive
-exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/compton.conf"
+
+# Music
+bindsym XF86Tools exec --no-startup-id chromium-browser https://soundcloud.com
 
 # Assign apps to workspaces
 assign [class="chromium-browser"] → $w1
