@@ -107,15 +107,13 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Quick Lauch mode
-set $mode_launch Chromium | Phpstorm | Brackets | Sublime | Nautilus | Webstorm | Gogland | Adobe PS CS6
+set $mode_launch Chromium | Brackets | Sublime | Nautilus | Adobe PS CS6 | Pidgin
 mode "$mode_launch" {
-    bindsym c exec --no-startup-id chromium-browser ; mode "default"
+    bindsym c exec --no-startup-id chromium-browser --disable-gpu; mode "default"
     bindsym n exec --no-startup-id nautilus ; mode "default"
     bindsym b exec --no-startup-id brackets ; mode "default"
     bindsym s exec --no-startup-id subl ; mode "default"
-    bindsym p exec --no-startup-id sh -c ~/.phpstorm/bin/phpstorm.sh ; mode "default"
-    bindsym w exec --no-startup-id sh -c ~/.webstorm/bin/webstorm.sh ; mode "default"
-    bindsym g exec --no-startup-id sh -c ~/.gogland/bin/gogland.sh ; mode "default"
+    bindsym p exec --no-startup-id pidgin ; mode "default"
     bindsym a exec --no-startup-id /usr/share/playonlinux/playonlinux --run "Adobe Photoshop CS6" %F ; mode "default"
 
     bindsym Escape mode "default"
@@ -159,7 +157,7 @@ bindsym $mod+j move workspace to output left
 bindsym $mod+k move workspace to output right
 
 # Lock screen command
-bindsym $mod+l exec "pkill -u $USER -USR1 dunst && lock && pkill -u $USER -USR2 dunst"
+bindsym $mod+l exec "pkill -u $USER -USR1 dunst && lock -f DejaVuSans && pkill -u $USER -USR2 dunst"
 
 # Dual screen 
 exec_always --no-startup-id xrandr --output HDMI-1 --auto --right-of DP-1
@@ -187,16 +185,16 @@ exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/c
 exec_always --no-startup-id mate-settings-daemon
 
 # Screenshot
-bindsym Print exec --no-startup-id gnome-screenshot --interactive
+bindsym Print exec --no-startup-id "flameshot gui -p ~/Screenshots"
 
 # Music
-bindsym XF86Tools exec --no-startup-id chromium-browser https://soundcloud.com
+bindsym XF86Tools exec --no-startup-id chromium-browser https://soundcloud.com --disable-gpu
 
 # Assign apps to workspaces
 assign [class="chromium-browser"] → $w1
 assign [class="jetbrains-phpstorm" window_type="normal"] → $w3
 assign [class="jetbrains-webstorm" window_type="normal"] → $w3
-assign [class="jetbrains-gogland" window_type="normal"] → $w3
+assign [class="jetbrains-goland" window_type="normal"] → $w3
 assign [class="Pidgin"] → $w4
 assign [class="Thunderbird"] → $w4
 
@@ -220,7 +218,7 @@ bindsym $mod+m workspace $w4; \
 append_layout ~/.config/i3/messaging-workspace.json; \
 exec --no-startup-id thunderbird; \
 exec --no-startup-id pidgin; \
-exec --no-startup-id chromium-browser; \
+exec --no-startup-id chromium-browser --disable-gpu; \
 exec --no-startup-id pidgin; \
 rename workspace 2 to $w2; \
 workspace $w2; \
@@ -243,6 +241,8 @@ bindsym $mod+Shift+l $terminalWorkspaceInit;
 # Rename workspace shorcut
 bindsym $mod+n exec "~/.config/i3/rename-workspace.sh"
 
+# Kill messaging app
+bindsym $mod+p exec "killall pidgin"
 
 # Bar appearance
 bar {

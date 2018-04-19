@@ -237,7 +237,7 @@
 #    summary = *signed off*
 #    urgency = low
 #
-# [says]
+#[says]
 #    appname = Pidgin
 #    urgency = critical
 #
