@@ -205,6 +205,7 @@ workspace "$w3" output HDMI-1
 workspace "$w4" output DP-1
 
 for_window [class="Photoshop.exe" window_type="normal"] floating enable,  resize set 1920 1080 
+for_window [window_role="pop-up"] floating enable
 
 # Auto-rename command
 bindsym $mod+Shift+n \
