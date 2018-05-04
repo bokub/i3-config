@@ -10,7 +10,7 @@ All these files should be placed in `~/.config/i3`
 
 ![Workspaces](https://i.imgur.com/D8fTUBR.png)
 
-![Status bar](https://i.imgur.com/rCi4jiF.png)
+![Status bar](https://i.imgur.com/OkbKEpt.png)
 
 ![Launcher](https://i.imgur.com/ahM3xgL.png)
 
