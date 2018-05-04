@@ -4,9 +4,24 @@
 
 All these files should be placed in `~/.config/i3`
 
-[![Screenshot](https://i.imgur.com/1mkvCdf.png)](https://i.imgur.com/1mkvCdf.png)
+![System info](https://i.imgur.com/f2FhWmT.png)
 
-[![Screenshot](https://i.imgur.com/YXWsQTR.png)](https://i.imgur.com/YXWsQTR.png)
+![Terminal](https://i.imgur.com/6EvkVhF.png)
+
+![Workspaces](https://i.imgur.com/M0X1VCU.png)
+
+![Status bar](https://i.imgur.com/ntBU4Mu.png)
+
+![Launcher](https://i.imgur.com/ahM3xgL.png)
+
+<details>
+<summary>Click to see the full screenshots</summary>
+	
+![Screenshot](https://i.imgur.com/1mkvCdf.png)
+
+![Screenshot](https://i.imgur.com/YXWsQTR.png)
+
+</details>
 
 
 ## Dependencies
@@ -20,7 +35,12 @@ All these files should be placed in `~/.config/i3`
 
 ## Terminal color theme
 
-[Dracula theme](https://github.com/Mayccoll/Gogh/blob/master/content/themes.md#dracula), from Mayccoll/Gogh
+[Dracula theme](https://github.com/Mayccoll/Gogh/blob/master/content/themes.md#dracula) for `gnome-terminal`
+
+
+## UI theme
+
+[Arc Dark](https://github.com/horst3180/arc-theme#arc-dark)
 
 
 ## Prompt PS1
