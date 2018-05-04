@@ -8,9 +8,9 @@ All these files should be placed in `~/.config/i3`
 
 ![Terminal](https://i.imgur.com/6EvkVhF.png)
 
-![Workspaces](https://i.imgur.com/M0X1VCU.png)
+![Workspaces](https://i.imgur.com/D8fTUBR.png)
 
-![Status bar](https://i.imgur.com/ntBU4Mu.png)
+![Status bar](https://i.imgur.com/rCi4jiF.png)
 
 ![Launcher](https://i.imgur.com/ahM3xgL.png)
 
