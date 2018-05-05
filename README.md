@@ -4,7 +4,7 @@
 
 All these files should be placed in `~/.config/i3`
 
-![System info](https://i.imgur.com/f2FhWmT.png)
+![System info](https://i.imgur.com/DMZyDQ1.png)
 
 ![Terminal](https://i.imgur.com/6EvkVhF.png)
 
@@ -15,7 +15,9 @@ All these files should be placed in `~/.config/i3`
 ![Launcher](https://i.imgur.com/ahM3xgL.png)
 
 <details>
-<summary>Click to see the full screenshots</summary>
+<summary>
+	Click to see the full screenshots
+</summary>
 	
 ![Screenshot](https://i.imgur.com/1mkvCdf.png)
 
@@ -40,7 +42,7 @@ All these files should be placed in `~/.config/i3`
 
 ## UI theme
 
-[Arc Dark](https://github.com/horst3180/arc-theme#arc-dark)
+[Arc Theme](https://github.com/horst3180/arc-theme) with Arc-Darker variant
 
 
 ## Prompt PS1
