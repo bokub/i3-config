@@ -1,15 +1,33 @@
 separator_block_width=25
 
+# [IOTA]
+# label=IOTA
+# command= echo $(curl https://api.coinmarketcap.com/v1/ticker/iota/ | jq -r '.[0].price_usd') "$"
+# interval=60
+# color=#FFB86C
+
+# [VEN]
+# label=VEN
+# command= echo $(curl https://api.coinmarketcap.com/v1/ticker/vechain/ | jq -r '.[0].price_usd') "$"
+# interval=60
+# color=#9bcfdc
+
+# [XRP]
+# label=XRP
+# command= echo $(curl https://api.coinmarketcap.com/v1/ticker/ripple/ | jq -r '.[0].price_usd' ) "$"
+# interval=60
+# color=#6EDDA4
+
 [worked]
 label=   
-command= DATE=$(date +%d-%m-%y) && FILE="/home/bkubiak/.scripts/time/$DATE.log" && if [ -f $FILE ]; then SECS=$(cat $FILE) && printf '%dh %dm %ds\n' $(($SECS/3600)) $(($SECS%3600/60)) $(($SECS%60)); fi
-interval=1
+command= DATE=$(date +%d-%m-%y) && FILE="/home/bkubiak/.scripts/time/$DATE.log" && if [ -f $FILE ]; then SECS=$(cat $FILE) && printf '%dh %dm\n' $(($SECS/3600)) $(($SECS%3600/60)); fi
+interval=15
 color=#BCC0FF
 
 [weekend]
 label=   
-command= SECS=$(( $(date --date="Fri. + 18 hours" +%s) - $(date +%s) )) && printf '%dd %dh %dm %ds\n' $(($SECS/86400)) $(($SECS%86400/3600)) $(($SECS%3600/60)) $(($SECS%60))
-interval=1
+command= SECS=$(( $(date --date="Fri. + 18 hours" +%s) - $(date +%s) )) && printf '%dd %dh %dm\n' $(($SECS/86400)) $(($SECS%86400/3600)) $(($SECS%3600/60))
+interval=15
 color=#F99D9F
 
 [velib-work]
@@ -109,13 +127,13 @@ command=/usr/lib/i3blocks/load_average
 interval=10
 color=#BD93F9
 
-[bandwidth]
-label=
-command=/usr/lib/i3blocks/bandwidth2  -t 2 -w 307200:30720 -c 512000:51200
-interval=persist
-markup=pango
-min_width=160
-align=center
+# [bandwidth]
+# label=
+# command=/usr/lib/i3blocks/bandwidth2  -t 2 -w 307200:30720 -c 512000:51200
+# interval=persist
+# markup=pango
+# min_width=160
+# align=center
 
 [volume]
 label=    
