@@ -37,7 +37,7 @@ All these files should be placed in `~/.config/i3`
 
 ## Terminal color theme
 
-[Dracula theme](https://github.com/Mayccoll/Gogh/blob/master/content/themes.md#dracula) for `gnome-terminal`
+[Dracula theme](http://mayccoll.github.io/Gogh/) for `gnome-terminal`
 
 
 ## UI theme
