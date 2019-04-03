@@ -4,26 +4,9 @@
 
 All these files should be placed in `~/.config/i3`
 
-![System info](https://i.imgur.com/DMZyDQ1.png)
+![System info](https://user-images.githubusercontent.com/17952318/55467588-e77a0380-5601-11e9-90a2-aeb707901edd.png)
 
-![Terminal](https://i.imgur.com/6EvkVhF.png)
-
-![Workspaces](https://i.imgur.com/D8fTUBR.png)
-
-![Status bar](https://i.imgur.com/OkbKEpt.png)
-
-![Launcher](https://i.imgur.com/ahM3xgL.png)
-
-<details>
-<summary>
-	Click to see the full screenshots
-</summary>
-	
-![Screenshot](https://i.imgur.com/1mkvCdf.png)
-
-![Screenshot](https://i.imgur.com/YXWsQTR.png)
-
-</details>
+![Tiles](https://user-images.githubusercontent.com/17952318/55467927-8ef73600-5602-11e9-81ec-81e8eba92ddb.png)
 
 
 ## Dependencies
