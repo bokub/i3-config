@@ -138,6 +138,9 @@ mode "$mode_gaps" {
 
 bindsym $mod+g mode "$mode_gaps"
 
+bindsym F7 exec "ssh pi@192.168.2.194 'omxplayer -o local coucou/sound/Oui.mp3'"
+bindsym F8 exec "ssh pi@192.168.2.194 'omxplayer -o local coucou/sound/Non.mp3'"
+
 # Workspace names
 set $w1 1 :  chromium
 set $w2 2 :  terminal
@@ -159,7 +162,7 @@ bindsym $mod+k move workspace to output right
 # Lock screen command
 bindsym $mod+l exec "pkill -u $USER -USR1 dunst && lock -f DejaVuSans && pkill -u $USER -USR2 dunst"
 
-# Dual screen 
+# Dual screen
 exec_always --no-startup-id xrandr --output HDMI-1 --auto --right-of DP-1
 
 # Wallpaper
@@ -204,7 +207,7 @@ workspace "$w2" output HDMI-1
 workspace "$w3" output HDMI-1
 workspace "$w4" output DP-1
 
-for_window [class="Photoshop.exe" window_type="normal"] floating enable,  resize set 1920 1080 
+for_window [class="Photoshop.exe" window_type="normal"] floating enable,  resize set 1920 1080
 for_window [window_role="pop-up"] floating enable
 
 # Auto-rename command

@@ -22,7 +22,7 @@
     #   %I  iconname (without its path)
     #   %p  progress value if set ([  0%] to [100%]) or nothing
     # Markup is allowed
-    format = "%s\n%b"
+    format = "%a\n%s\n%b"
     #format = "%s\n%b"
     
     # Sort messages by urgency.
@@ -185,8 +185,8 @@
     timeout = 5
 
 [urgency_normal]
-    background = "#F0C674"
-    foreground = "#1d1f21"
+    background = "#cc6666"
+    foreground = "#ffffff"
     timeout = 5
 
 [urgency_critical]
@@ -194,6 +194,14 @@
     foreground = "#1d1f21"
     timeout = 0
 
+[pidgin]
+   appname = "Pidgin"
+   format = "New message\n%s"
+
+[ignore]
+   This notification will not be displayed
+   appname = "notify-send"
+   format = ""
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
