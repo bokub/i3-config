@@ -4,9 +4,11 @@
 
 All these files should be placed in `~/.config/i3`
 
-![System info](https://user-images.githubusercontent.com/17952318/55467588-e77a0380-5601-11e9-90a2-aeb707901edd.png)
+![Tiles](https://user-images.githubusercontent.com/17952318/55468251-4429ee00-5603-11e9-9a71-a078485b737b.png)
 
-![Tiles](https://user-images.githubusercontent.com/17952318/55467927-8ef73600-5602-11e9-81ec-81e8eba92ddb.png)
+![System](https://user-images.githubusercontent.com/17952318/55468407-9834d280-5603-11e9-8b7f-6c7ad8273bd3.png)
+
+![Files](https://user-images.githubusercontent.com/17952318/55468672-2b6e0800-5604-11e9-92f9-dd35bae23c63.png)
 
 
 ## Dependencies
