@@ -26,25 +26,25 @@ color=#F9E060
 
 [disk-root]
 label=    
-command=/usr/lib/i3blocks/disk /
+command=~/.config/i3/i3blocks/disk /
 interval=60
 color=#8BE9FD
 
 [memory]
 label=    
-command=/usr/lib/i3blocks/memory
+command=~/.config/i3/i3blocks/memory
 interval=15
 color=#FF79C6
 
 [cpu]
 label=    
-command=/usr/lib/i3blocks/cpu_usage
+command=~/.config/i3/i3blocks/cpu_usage
 interval=5
 color=#FF5555
 
 # [swap]
 # label=Swap:
-# command=/usr/lib/i3blocks/memory swap
+# command=~/.config/i3/i3blocks/memory swap
 # interval=30
 
 # [Weather]
@@ -60,7 +60,7 @@ color=#FF5555
 
 # [disk-home]
 # label=:
-# command=/usr/lib/i3blocks/disk $HOME
+# command=~/.config/i3/i3blocks/disk $HOME
 # interval=30
 # color=#859900
 
@@ -73,14 +73,14 @@ color=#FF5555
 # [wireless]
 # label=W
 # instance=wlo1
-# command=/usr/lib/i3blocks/iface
+# command=~/.config/i3/i3blocks/iface
 # color=#00FF00
 # interval=10
 
 # [ethernet]
 # label=E
 # instance=eno1
-# command=/usr/lib/i3blocks/network
+# command=~/.config/i3/i3blocks/network
 # color=#00FF00
 # interval=10
 
@@ -98,20 +98,20 @@ color=#FF5555
 # [battery]
 #label=BAT
 #label=⚡
-#command=/usr/lib/i3blocks/battery BAT0
+#command=~/.config/i3/i3blocks/battery BAT0
 # command=~/.i3/battery BAT0
 
 # interval=30
 
 [load]
 label=     
-command=/usr/lib/i3blocks/load_average
+command=~/.config/i3/i3blocks/load_average
 interval=10
 color=#BD93F9
 
 # [bandwidth]
 # label=
-# command=/usr/lib/i3blocks/bandwidth2  -t 2 -w 307200:30720 -c 512000:51200
+# command=~/.config/i3/i3blocks/bandwidth2  -t 2 -w 307200:30720 -c 512000:51200
 # interval=persist
 # markup=pango
 # min_width=160
@@ -119,7 +119,7 @@ color=#BD93F9
 
 [volume]
 label=    
-command=/usr/lib/i3blocks/volume
+command=~/.config/i3/i3blocks/volume
 interval=2
 signal=10
 color=#FFB86C

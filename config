@@ -251,7 +251,7 @@ bindsym $mod+p exec "killall pidgin"
 # Bar appearance
 bar {
     font pango:FontAwesome 10
-    status_command i3blocks -c ~/.config/i3/i3blocks
+    status_command i3blocks -c ~/.config/i3/i3blocks/config
     position top
     tray_output primary
     mode dock
