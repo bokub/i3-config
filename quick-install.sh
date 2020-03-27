@@ -28,7 +28,7 @@ mkdir -p ~/.config && cd ~/.config && rm -fr i3
 git clone https://github.com/bokub/i3-config.git i3
 
 # Download wallpaper
-cd && mkdir -p wallpapers && wget https://i.imgur.com/MvueIxF.jpg -O wallpapers/blue_pink_gradient.jpg
+cd && mkdir -p wallpapers && wget https://github.com/bokub/i3-config/blob/images/wallpapers/blue_pink_gradient.jpg -O wallpapers/blue_pink_gradient.jpg
 
 # Install Snazzy theme for gnome-terminal
 cd && git clone https://github.com/tobark/hyper-snazzy-gnome-terminal.git snazzy && cd snazzy

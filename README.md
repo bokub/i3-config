@@ -5,9 +5,9 @@
 All these files should be placed in `~/.config/i3`
 
 <p align="center">
-  <img alt="System" src="https://user-images.githubusercontent.com/17952318/55468407-9834d280-5603-11e9-8b7f-6c7ad8273bd3.png">
-  <img alt="Files" src="https://user-images.githubusercontent.com/17952318/55470040-1d6db680-5607-11e9-8425-1a4ea78697fd.png">
-  <img alt="Tiles" src="https://user-images.githubusercontent.com/17952318/55468251-4429ee00-5603-11e9-9a71-a078485b737b.png">
+  <img alt="System" src="https://raw.githubusercontent.com/bokub/i3-config/images/screenshots/system.png">
+  <img alt="Files" src="https://raw.githubusercontent.com/bokub/i3-config/images/screenshots/files.png">
+  <img alt="Tiles" src="https://raw.githubusercontent.com/bokub/i3-config/images/screenshots/tiles.png">
 </p>
 
 ## Dependencies
@@ -24,7 +24,7 @@ All these files should be placed in `~/.config/i3`
 
 ```sh
 # Install everything on a fresh Ubuntu setup
-curl -fsSL https://raw.githubusercontent.com/bokub/i3-config/master/quick-install.sh | bash
+curl -fsSL https://git.io/i3-config | bash
 ```
 
 The command above will:
