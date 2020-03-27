@@ -1,100 +1,99 @@
 separator_block_width=25
 
 [weekend]
-label=
+label=    
 command= SECS=$(( $(date --date="Fri. 17:30" +%s) - $(date +%s) )) && printf '%dd %dh %dm\n' $(($SECS/86400)) $(($SECS%86400/3600)) $(($SECS%3600/60))
 interval=15
 color=#F99D9F
 
 [disk-root]
-label=
+label=    
 command=~/.config/i3/i3blocks/disk /
 interval=60
 color=#9aedfe
 
 [memory]
-label=
+label=    
 command=~/.config/i3/i3blocks/memory
 interval=15
 color=#ff6ac1
 
 [cpu]
-label=
+label=    
 command=~/.config/i3/i3blocks/cpu_usage
 interval=5
 color=#ff5c57
 
 [load]
-label=
+label=    
 command=~/.config/i3/i3blocks/load_average
 interval=10
 color=#57c7ff
 
 [volume]
-label=
+label=    
 command=~/.config/i3/i3blocks/volume
 interval=2
 signal=10
 color=#FFB86C
 
 [battery]
-label=
+label=    
 command=~/.config/i3/i3blocks/battery BAT0
 interval=30
 color=#F9E060
 
 [time]
-label=
+label=    
 command=date '+%a %d %b %R:%S %p'
 interval=1
 color=#5af78e
 
 
-
 # [velib-work]
-# label=
+# label=    
 # command= printf "`curl -s 'https://api.jcdecaux.com/vls/v1/stations/41?contract=toulouse&apiKey='$JCD_API | jq -r '.available_bikes'` / 21"
 # interval=60
 # color=#6EDDA4
 
 # [velib-home]
-# label=
+# label=    
 # command= printf "`curl -s 'https://api.jcdecaux.com/vls/v1/stations/195?contract=toulouse&apiKey='$JCD_API | jq -r '.available_bikes'` / 18"
 # interval=60
 # color=#F9E060
 
 # [swap]
-# label=Swap:
+# label=Swap:    
 # command=~/.config/i3/i3blocks/memory swap
 # interval=30
 
 # [mail]
-# label=
+# label=    
 # command=~/.i3/.mail.sh.x
 # interval=100
 # color=#7F00FF
 
 # [disk-home]
-# label=:
+# label=:    
 # command=~/.config/i3/i3blocks/disk $HOME
 # interval=30
 # color=#859900
 
 # [ssid]
-# label=
+# label=    
 # command=echo "$(iw dev wlo1 link | grep SSID | cut -d " " -f 2-)"
 # color=#d33682
 # interval=5
 
 # [wireless]
-# label=W
+# label=W    
 # instance=wlo1
 # command=~/.config/i3/i3blocks/iface
 # color=#00FF00
 # interval=10
 
 # [ethernet]
-# label=E
+# label=E    
 # instance=eno1
 # command=~/.config/i3/i3blocks/network
 # color=#00FF00
@@ -106,13 +105,13 @@ color=#5af78e
 # color=#cb4b16
 
 # [temp]
-# label=
+# label=    
 # command=echo "$(sensors coretemp-isa-0000 | awk '/Physical/ {print $4}')"
 # interval=10
 # color=#b58900
 
 # [bandwidth]
-# label=
+# label=    
 # command=~/.config/i3/i3blocks/bandwidth2  -t 2 -w 307200:30720 -c 512000:51200
 # interval=persist
 # markup=pango

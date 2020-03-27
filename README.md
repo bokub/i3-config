@@ -17,49 +17,24 @@ All these files should be placed in `~/.config/i3`
 - [Rofi](https://github.com/DaveDavenport/rofi) (app launcher)
 - [Compton](https://github.com/chjj/compton) (shadows & opacity)
 - [Font Awesome](http://fontawesome.io/) (icons)
+- [Nitrogen](https://github.com/l3ib/nitrogen/) (wallpaper manager)
+- [Snazzy](https://github.com/tobark/hyper-snazzy-gnome-terminal) (terminal color scheme)
 
+## Quick install
 
-## Terminal color theme
-
-[Dracula theme](http://mayccoll.github.io/Gogh/) for `gnome-terminal`
-
-
-## UI theme
-
-[Arc Theme](https://github.com/horst3180/arc-theme) with Arc-Darker variant
-
-
-## Prompt PS1
-
-```bash
-PROMPT_COMMAND=__prompt_command # Func to gen PS1 after CMDs
-
-__prompt_command() {
-    local EXIT="$?" # This needs to be first
-    PS1=""
-    local RCol='\[\e[0m\]'
-    local Red='\[\e[1;31m\]'
-    local Gre='\[\e[1;32m\]'
-    local Yel='\[\e[0;33m\]'
-    local Blu='\[\e[0;34m\]'
-    local Pin='\[\e[0;36m\]'
-
-    PS1+="${Blu}\w " # Path
-
-    _BRANCH=$(git branch 2>/dev/null | grep '^*' | colrm 1 2) # Git branch
-    if [ -n "$_BRANCH" ]; then
-    	PS1+="${Pin}"
-    	# Yellow color if dirty
-    	[[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && PS1+="${Yel}"
-    	PS1+="$_BRANCH "
-	fi
-
-    if [ $EXIT != 0 ]; then # Color depending on status
-        PS1+="${Red}>"
-    else
-        PS1+="${Gre}>"
-    fi
-    PS1+=" ${RCol}" # Reset color
-}
-
+```sh
+# Install everything on a fresh Ubuntu setup
+curl -fsSL https://raw.githubusercontent.com/bokub/i3-config/master/quick-install.sh | bash
 ```
+
+The command above will:
+
+- Install i3-gaps dependencies
+- Build i3-gaps from source
+- Install i3blocks, Rofi, Compton, Font Awesome and Nitrogen
+- Override i3 config with this repository
+- Download and set the wallpaper
+- Install Snazzy color scheme for gnome-terminal
+
+It should work on a fresh Ubuntu setup. For any other distro, I have no idea.
+

@@ -154,9 +154,8 @@ bindsym $mod+Shift+w \
 exec --no-startup-id "$set_wallpaper --head=0"; \
 exec --no-startup-id "$set_wallpaper --head=1";
 
-
 # Num Lock
-exec_always --no-startup-id xdotool key --clearmodifiers Num_Lock
+exec_always --no-startup-id bash -c "if xset q | grep -q 'Num Lock: *off'; then xdotool key Num_Lock; fi"
 
 # Notif
 exec_always --no-startup-id "killall -q dunst; dunst -config ~/.config/i3/notif"
