@@ -53,10 +53,12 @@ bindsym $mod+z layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
- bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+b floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
+bindsym $mod+b focus mode_toggle
 
 # switch to workspace
 bindsym $mod+ampersand workspace number 1
@@ -94,27 +96,27 @@ bindsym $mod+Shift+h exec "i3-nagbar -t warning -m 'Shutdown ?' -b 'Yeah, sure' 
 
 # Resize
 mode "resize" {
-        # arrow keys
-        bindsym Left    resize shrink   width   10 px or 4 ppt
-        bindsym Down    resize grow     height  10 px or 4 ppt
-        bindsym Up      resize shrink   height  10 px or 4 ppt
-        bindsym Right   resize grow     width   10 px or 4 ppt
+    # arrow keys
+    bindsym Left    resize shrink   width   10 px or 4 ppt
+    bindsym Down    resize grow     height  10 px or 4 ppt
+    bindsym Up      resize shrink   height  10 px or 4 ppt
+    bindsym Right   resize grow     width   10 px or 4 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
 
 # Quick Lauch mode
-set $mode_launch Chromium | Brackets | Sublime | Nautilus | Adobe PS CS6 | Pidgin
+set $mode_launch Chromium | Nautilus | Sublime | Firefox | GoLand | WebStorm
 mode "$mode_launch" {
-    bindsym c exec --no-startup-id chromium-browser --disable-gpu; mode "default"
+    bindsym c exec --no-startup-id chromium-browser ; mode "default"
     bindsym n exec --no-startup-id nautilus ; mode "default"
-    bindsym b exec --no-startup-id brackets ; mode "default"
     bindsym s exec --no-startup-id subl ; mode "default"
-    bindsym p exec --no-startup-id pidgin ; mode "default"
-    bindsym a exec --no-startup-id /usr/share/playonlinux/playonlinux --run "Adobe Photoshop CS6" %F ; mode "default"
+    bindsym f exec --no-startup-id firefox ; mode "default"
+    bindsym g exec --no-startup-id goland ; mode "default"
+    bindsym w exec --no-startup-id webstorm ; mode "default"
 
     bindsym Escape mode "default"
 }
@@ -124,28 +126,10 @@ bindsym $mod+Tab mode "$mode_launch"
 gaps inner 12
 gaps outer 0
 
-# Gaps toggle
-set $mode_gaps Gaps ? y / n
-mode "$mode_gaps" {
-        # arrow keys
-        bindsym y gaps inner current set 12 ; mode "default"
-        bindsym n gaps inner current set 0 ; mode "default"
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-bindsym $mod+g mode "$mode_gaps"
-
-bindsym F7 exec "ssh pi@192.168.2.194 'omxplayer -o local coucou/sound/Oui.mp3'"
-bindsym F8 exec "ssh pi@192.168.2.194 'omxplayer -o local coucou/sound/Non.mp3'"
-
 # Workspace names
-set $w1 1 :  chromium
+set $w1 1 :  browser
 set $w2 2 :  terminal
 set $w3 3 :  code
-set $w4 4 :  messaging
 
 # Options
 popup_during_fullscreen leave_fullscreen
@@ -162,21 +146,24 @@ bindsym $mod+k move workspace to output right
 # Lock screen command
 bindsym $mod+l exec "pkill -u $USER -USR1 dunst && lock -f DejaVuSans && pkill -u $USER -USR2 dunst"
 
-# Dual screen
-exec_always --no-startup-id xrandr --output HDMI-1 --auto --right-of DP-1
-
 # Wallpaper
-exec_always --no-startup-id nitrogen --restore
+set $set_wallpaper nitrogen --set-scaled ~/wallpapers/blue_pink_gradient.jpg
+exec_always --no-startup-id  sh -c "sleep 0.5; $set_wallpaper --head=0;sleep 0.5;$set_wallpaper --head=1"
+
+bindsym $mod+Shift+w \
+exec --no-startup-id "$set_wallpaper --head=0"; \
+exec --no-startup-id "$set_wallpaper --head=1";
+
+
+# Num Lock
+exec_always --no-startup-id xdotool key --clearmodifiers Num_Lock
 
 # Notif
 exec_always --no-startup-id "killall -q dunst; dunst -config ~/.config/i3/notif"
 
-# Dmenu
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
 # Use rofi, not dmenu
-bindsym $mod+d exec --no-startup-id "rofi -show drun -config ~/.config/i3/rofi";
-bindsym $mod+w exec --no-startup-id "~/.config/i3/select-workspace.sh";
+bindsym $mod+d exec --no-startup-id "rofi -show drun -config ~/.config/i3/rofi"
+bindsym $mod+w exec --no-startup-id "~/.config/i3/select-workspace.sh"
 
 # No border
 new_window none
@@ -190,24 +177,18 @@ exec_always --no-startup-id mate-settings-daemon
 # Screenshot
 bindsym Print exec --no-startup-id "flameshot gui -p ~/Screenshots"
 
-# Music
-bindsym XF86Tools exec --no-startup-id chromium-browser https://soundcloud.com --disable-gpu
-
 # Assign apps to workspaces
 assign [class="chromium-browser"] → $w1
+assign [class="Firefox"] → $w1
 assign [class="jetbrains-phpstorm" window_type="normal"] → $w3
 assign [class="jetbrains-webstorm" window_type="normal"] → $w3
 assign [class="jetbrains-goland" window_type="normal"] → $w3
-assign [class="Pidgin"] → $w4
-assign [class="Thunderbird"] → $w4
 
 # Assign workspaces to output
-workspace "$w1" output DP-1
-workspace "$w2" output HDMI-1
-workspace "$w3" output HDMI-1
-workspace "$w4" output DP-1
+workspace "$w1" output VGA-1
+workspace "$w2" output VGA-2
+workspace "$w3" output VGA-2
 
-for_window [class="Photoshop.exe" window_type="normal"] floating enable,  resize set 1920 1080
 for_window [window_role="pop-up"] floating enable
 
 # Auto-rename command
@@ -215,38 +196,19 @@ bindsym $mod+Shift+n \
 rename workspace 1 to $w1; \
 rename workspace 2 to $w2; \
 rename workspace 3 to $w3; \
-rename workspace 4 to $w4
 
 # Start default apps with correct layouts
-bindsym $mod+m workspace $w4; \
-append_layout ~/.config/i3/messaging-workspace.json; \
-exec --no-startup-id thunderbird; \
-exec --no-startup-id pidgin; \
-exec --no-startup-id chromium-browser --disable-gpu; \
-exec --no-startup-id pidgin; \
+bindsym $mod+m rename workspace 1 to $w1; \
+exec --no-startup-id firefox; \
 rename workspace 2 to $w2; \
 workspace $w2; \
-$terminalWorkspaceInit; \
-workspace $w1
-
-# Init terminal workspace with 6 windows
-set $terminalWorkspaceInit append_layout ~/.config/i3/terminal-workspace.json; \
 exec "sh -c 'sleep 0.1; exec gnome-terminal'"; \
 exec "sh -c 'sleep 0.2; exec gnome-terminal'"; \
-exec "sh -c 'sleep 0.3; exec gnome-terminal'"; \
-exec "sh -c 'sleep 0.4; exec gnome-terminal --role=clock -e tty-clock'"; \
-exec "sh -c 'sleep 0.5; exec gnome-terminal --role=htop -e htop'"; \
-exec "sh -c 'sleep 0.6; exec gnome-terminal --role=eq -e cava'"; \
-exec --no-startup-id "sh -c 'sleep 1; compton --config ~/.config/i3/compton.conf'"; \
-
-# Terminal workspace shortcut
-bindsym $mod+Shift+l $terminalWorkspaceInit;
+workspace $w1
 
 # Rename workspace shorcut
 bindsym $mod+n exec "~/.config/i3/rename-workspace.sh"
 
-# Kill messaging app
-bindsym $mod+p exec "killall pidgin"
 
 # Bar appearance
 bar {
