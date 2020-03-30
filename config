@@ -127,7 +127,7 @@ gaps inner 12
 gaps outer 0
 
 # Workspace names
-set $w1 1 :  browser
+set $w1 1 :  browser
 set $w2 2 :  terminal
 set $w3 3 :  code
 
@@ -143,22 +143,16 @@ bindsym --whole-window $mod+button2 kill
 bindsym $mod+j move workspace to output left
 bindsym $mod+k move workspace to output right
 
-# Lock screen command
-bindsym $mod+l exec "pkill -u $USER -USR1 dunst && lock -f DejaVuSans && pkill -u $USER -USR2 dunst"
-
 # Wallpaper
-set $set_wallpaper nitrogen --set-scaled ~/wallpapers/blue_pink_gradient.jpg
-exec_always --no-startup-id  sh -c "sleep 0.5; $set_wallpaper --head=0;sleep 0.5;$set_wallpaper --head=1"
+exec_always --no-startup-id "nitrogen --restore"
 
-bindsym $mod+Shift+w \
-exec --no-startup-id "$set_wallpaper --head=0"; \
-exec --no-startup-id "$set_wallpaper --head=1";
+bindsym $mod+Shift+w exec --no-startup-id "nitrogen --restore"
 
 # Num Lock
-exec_always --no-startup-id bash -c "if xset q | grep -q 'Num Lock: *off'; then xdotool key Num_Lock; fi"
+exec_always --no-startup-id  bash -c "if xset q | grep -q 'Num Lock: *off'; then xdotool key Num_Lock; fi"
 
 # Notif
-exec_always --no-startup-id "killall -q dunst; dunst -config ~/.config/i3/notif"
+exec_always --no-startup-id "pkill dunst; dunst -config ~/.config/i3/dunstrc"
 
 # Use rofi, not dmenu
 bindsym $mod+d exec --no-startup-id "rofi -show drun -config ~/.config/i3/rofi"
@@ -174,7 +168,7 @@ exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/c
 exec_always --no-startup-id mate-settings-daemon
 
 # Screenshot
-bindsym Print exec --no-startup-id "flameshot gui -p ~/Screenshots"
+bindsym Print exec "flameshot gui -p ~/Screenshots"
 
 # Assign apps to workspaces
 assign [class="chromium-browser"] → $w1
@@ -208,10 +202,9 @@ workspace $w1
 # Rename workspace shorcut
 bindsym $mod+n exec "~/.config/i3/rename-workspace.sh"
 
-
 # Bar appearance
 bar {
-    font pango:FontAwesome 10
+    font pango:DejaVu Sans, Font Awesome 5 Free Solid 10
     status_command i3blocks -c ~/.config/i3/i3blocks/config
     position top
     tray_output primary
