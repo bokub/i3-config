@@ -5,6 +5,9 @@ set -e
 
 sudo apt update
 
+# Just in case
+sudo apt install -y git wget
+
 # Install i3-gaps dependencies
 sudo apt install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
 libxcb-util0-dev libxcb-icccm4-dev libyajl-dev \
@@ -38,17 +41,17 @@ nitrogen --save --set-scaled ~/wallpapers/blue_pink_gradient.jpg --head=0 && sle
 nitrogen --save --set-scaled ~/wallpapers/blue_pink_gradient.jpg --head=1
 
 # Install Starship
-cd
-wget https://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-gnu.tar.gz
-sudo tar -xzf starship-x86_64-unknown-linux-gnu.tar.gz -C /usr/local/bin
-rm starship-x86_64-unknown-linux-gnu.tar.gz
+cd && wget https://starship.rs/install.sh -O install_starship.sh
+bash install_starship.sh -y
 echo 'eval "$(starship init bash)"' >> .bashrc
-
-curl -fsSL https://starship.rs/install.sh | bash -f
+rm install_starship.sh
 
 # Install Snazzy theme for gnome-terminal
-cd && git clone https://github.com/tobark/hyper-snazzy-gnome-terminal.git snazzy && cd snazzy
-chmod +x hyper-snazzy.sh && ./hyper-snazzy.sh
+cd && git clone https://github.com/tobark/hyper-snazzy-gnome-terminal.git snazzy
+chmod +x snazzy/hyper-snazzy.sh
+./snazzy/hyper-snazzy.sh || echo -e "\e[33mCould not install Snazzy color scheme..."
 
 # Cleanup
 cd && rm -fr i3-gaps snazzy Font-Awesome
+
+echo -e "\e[32mSuccess !"
