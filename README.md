@@ -5,9 +5,9 @@
 All these files should be placed in `~/.config/i3`
 
 <p align="center">
-  <img alt="System" src="https://raw.githubusercontent.com/bokub/i3-config/images/screenshots/system.png">
-  <img alt="Files" src="https://raw.githubusercontent.com/bokub/i3-config/images/screenshots/files.png">
-  <img alt="Tiles" src="https://raw.githubusercontent.com/bokub/i3-config/images/screenshots/tiles.png">
+  <img alt="System" src="https://raw.githubusercontent.com/bokub/i3-config/images/screenshots/tiles.png">
+  <img alt="Files" src="https://raw.githubusercontent.com/bokub/i3-config/images/screenshots/neofetch.png">
+  <img alt="Tiles" src="https://raw.githubusercontent.com/bokub/i3-config/images/screenshots/browser.png">
 </p>
 
 ## Dependencies
