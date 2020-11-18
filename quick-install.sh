@@ -51,6 +51,14 @@ cd && git clone https://github.com/tobark/hyper-snazzy-gnome-terminal.git snazzy
 chmod +x snazzy/hyper-snazzy.sh
 ./snazzy/hyper-snazzy.sh || echo -e "\e[33mCould not install Snazzy color scheme..."
 
+# Install Dracula theme for GTK
+cd /usr/share/themes
+sudo wget https://github.com/dracula/gtk/archive/master.zip -O dracula.zip
+sudo unzip dracula.zip
+sudo mv gtk-master Dracula
+echo "[Settings]
+gtk-theme-name=Dracula" > ~/.config/gtk-3.0/settings.ini
+
 # Cleanup
 cd && rm -fr i3-gaps snazzy Font-Awesome
 
