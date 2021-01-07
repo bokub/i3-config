@@ -9,7 +9,7 @@ sudo apt update
 sudo apt install -y git wget
 
 # Install i3-gaps dependencies
-sudo apt install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
+sudo apt install -y meson libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
 libxcb-util0-dev libxcb-icccm4-dev libyajl-dev \
 libstartup-notification0-dev libxcb-randr0-dev \
 libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
@@ -18,10 +18,10 @@ autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev
 
 # Build i3-gaps from source
 cd && git clone https://www.github.com/Airblader/i3 i3-gaps && cd i3-gaps
-autoreconf --force --install
-rm -rf build/ && mkdir -p build && cd build/
-../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
-make && sudo make install
+mkdir -p build && cd build
+meson ..
+ninja
+meson install
 
 # Install other tools
 sudo apt install -y i3blocks rofi compton nitrogen xdotool dunst
