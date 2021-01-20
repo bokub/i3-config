@@ -1,14 +1,8 @@
 separator_block_width=25
 
-[weekend]
-label=  
-command= SECS=$(( $(date --date="Fri. 17:30" +%s) - $(date +%s) )) && printf '%dd %dh %dm\n' $(($SECS/86400)) $(($SECS%86400/3600)) $(($SECS%3600/60))
-interval=15
-color=#F99D9F
-
 [disk-root]
 label=  
-command=~/.config/i3/i3blocks/disk /
+command=~/.config/i3blocks/disk/disk /
 interval=30
 color=#9aedfe
 
@@ -20,28 +14,28 @@ color=#ff6ac1
 
 [cpu]
 label=  
-command=~/.config/i3/i3blocks/cpu_usage
+command=~/.config/i3blocks/cpu_usage/cpu_usage
 interval=5
 color=#ff5c57
 
 [load]
 label=  
-command=~/.config/i3/i3blocks/load_average
+command=~/.config/i3blocks/load_average/load_average
 interval=5
 color=#57c7ff
 
+[temperature]
+label=  
+command=~/.config/i3blocks/temperature/temperature
+interval=10
+color=#F9E060
+SENSOR_CHIP=coretemp-isa-0000
+
 [volume]
-label=  
-command=~/.config/i3/i3blocks/volume
+command=echo "$(if pactl info | grep Sink | grep -q Headset; then echo ; else echo ; fi)  $(~/.config/i3blocks/volume/volume "5%" pulse)"
 interval=2
 signal=10
 color=#FFB86C
-
-[battery]
-label=  
-command=~/.config/i3/i3blocks/battery BAT0
-interval=30
-color=#F9E060
 
 [time]
 label=  
@@ -49,6 +43,17 @@ command=date '+%a %d %b %R:%S %p'
 interval=1
 color=#5af78e
 
+# [battery]
+# label=  
+# command=/usr/share/i3blocks/battery BAT0
+# interval=30
+# color=#F9E060
+
+# [weekend]
+# label=  
+# command= SECS=$(( $(date --date="Fri. 17:30" +%s) - $(date +%s) )) && printf '%dd %dh %dm\n' $(($SECS/86400)) $(($SECS%86400/3600)) $(($SECS%3600/60))
+# interval=15
+# color=#F99D9F
 
 # [velib-work]
 # label=  
@@ -64,7 +69,7 @@ color=#5af78e
 
 # [swap]
 # label=Swap:  
-# command=~/.config/i3/i3blocks/memory swap
+# command=/usr/share/i3blocks/memory swap
 # interval=30
 
 # [mail]
@@ -75,7 +80,7 @@ color=#5af78e
 
 # [disk-home]
 # label=:  
-# command=~/.config/i3/i3blocks/disk $HOME
+# command=/usr/share/i3blocks/disk $HOME
 # interval=30
 # color=#859900
 
@@ -88,14 +93,14 @@ color=#5af78e
 # [wireless]
 # label=W  
 # instance=wlo1
-# command=~/.config/i3/i3blocks/iface
+# command=/usr/share/i3blocks/iface
 # color=#00FF00
 # interval=10
 
 # [ethernet]
 # label=E  
 # instance=eno1
-# command=~/.config/i3/i3blocks/network
+# command=/usr/share/i3blocks/network
 # color=#00FF00
 # interval=10
 
@@ -109,11 +114,3 @@ color=#5af78e
 # command=echo "$(sensors coretemp-isa-0000 | awk '/Physical/ {print $4}')"
 # interval=10
 # color=#b58900
-
-# [bandwidth]
-# label=  
-# command=~/.config/i3/i3blocks/bandwidth2  -t 2 -w 307200:30720 -c 512000:51200
-# interval=persist
-# markup=pango
-# min_width=160
-# align=center

@@ -23,8 +23,17 @@ meson ..
 ninja
 meson install
 
+# Build i3blocks from source
+cd && git clone https://github.com/vivien/i3blocks
+cd i3blocks
+./autogen.sh
+./configure
+make
+sudo make install
+git clone https://github.com/vivien/i3blocks-contrib ~/.config/i3blocks
+
 # Install other tools
-sudo apt install -y i3blocks rofi compton nitrogen xdotool dunst
+sudo apt install -y rofi compton nitrogen xdotool dunst lm-sensors
 
 # Download and install font-awesome
 sudo mkdir -p /usr/share/fonts/opentype/font-awesome
@@ -44,6 +53,7 @@ nitrogen --save --set-scaled ~/wallpapers/blue_pink_gradient.jpg --head=1
 cd && wget https://starship.rs/install.sh -O install_starship.sh
 bash install_starship.sh -y
 echo 'eval "$(starship init bash)"' >> .bashrc
+echo 'eval "$(starship init zsh)"' >> .zshrc
 rm install_starship.sh
 
 # Install Snazzy theme for gnome-terminal
@@ -59,7 +69,11 @@ sudo mv gtk-master Dracula
 echo "[Settings]
 gtk-theme-name=Dracula" > ~/.config/gtk-3.0/settings.ini
 
+# Install flameshot
+sudo apt install -y flameshot
+mkdir ~/Screenshots
+
 # Cleanup
-cd && rm -fr i3-gaps snazzy Font-Awesome
+cd && rm -fr i3-gaps i3blocks snazzy Font-Awesome
 
 echo -e "\e[32mSuccess !"
