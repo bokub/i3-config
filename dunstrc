@@ -277,7 +277,7 @@
     # On the US keyboard layout "grave" is normally above TAB and left
     # of "1". Make sure this key actually exists on your keyboard layout,
     # e.g. check output of 'xmodmap -pke'
-    history = ctrl+grave
+    # history = ctrl+grave
 
     # Context menu.
     context = ctrl+shift+period

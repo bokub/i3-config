@@ -21,6 +21,7 @@ All these files should be placed in `~/.config/i3`
 - [Nitrogen](https://github.com/l3ib/nitrogen/) (wallpaper manager)
 - [Starship](https://github.com/starship/starship) (shell prompt)
 - [Snazzy](https://github.com/tobark/hyper-snazzy-gnome-terminal) (terminal color scheme)
+- [Dracula](https://draculatheme.com/gtk) (dark theme for GTK)
 
 ## Quick install
 
@@ -32,12 +33,24 @@ curl -fsSL https://git.io/i3-config | bash
 The command above will:
 
 - Install i3-gaps dependencies and build i3-gaps from source
-- Install i3blocks, Rofi, Compton, Dunst and Nitrogen
+- Build i3blocks from source
+- Install Rofi, Compton, Dunst and Nitrogen
 - Download and install Font Awesome fonts
 - Override i3 config with this repository
 - Download and set the wallpaper
 - Install Starship
 - Install Snazzy color scheme for gnome-terminal
+- Install Dracula theme for GTK
+- Install Flameshot (screenshot tool)
 
 The script should work on a fresh Ubuntu setup. For any other distro, I have no idea.
+
+## Using on a HiDPI display
+
+The following makes things bigger when I'm working on my HiDPI monitor:
+
+```bash
+echo "export GDK_DPI_SCALE=1.1" >> ~/.profile
+echo "Xft.dpi: 115" >> ~/.Xresources
+```
 
