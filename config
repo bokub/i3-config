@@ -182,6 +182,9 @@ set $sink1 alsa_output.pci-0000_00_1b.0.analog-stereo
 set $sink2 alsa_output.usb-Logitech_Logitech_G430_Gaming_Headset-00.analog-stereo
 bindsym $mod+o exec --no-startup-id "if pactl info | grep -q $sink2; then pacmd set-default-sink $sink1; else pacmd set-default-sink $sink2; fi"
 
+# Touchpad toggle
+bindsym $mod+t exec --no-startup-id "if synclient | grep TouchpadOff | grep -q 1; then synclient TouchpadOff=0; else synclient TouchpadOff=1; fi"
+
 # Mouse sensivity
 exec_always --no-startup-id  xinput --set-prop "SteelSeries Kana v2 Gaming Mouse" "Coordinate Transformation Matrix" 0.5 0 0 0 0.5 0 0 0 1
 
