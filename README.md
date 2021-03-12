@@ -51,6 +51,6 @@ The following makes things bigger when I'm working on my HiDPI monitor:
 
 ```bash
 echo "export GDK_DPI_SCALE=1.1" >> ~/.profile
-echo "Xft.dpi: 115" >> ~/.Xresources
+echo "Xft.dpi: 125" >> ~/.Xresources
 ```
 

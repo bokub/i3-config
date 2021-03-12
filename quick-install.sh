@@ -33,7 +33,7 @@ sudo make install
 git clone https://github.com/vivien/i3blocks-contrib ~/.config/i3blocks
 
 # Install other tools
-sudo apt install -y rofi compton nitrogen xdotool dunst lm-sensors
+sudo apt install -y rofi compton nitrogen xdotool dunst lm-sensors sysstat
 
 # Download and install font-awesome
 sudo mkdir -p /usr/share/fonts/opentype/font-awesome

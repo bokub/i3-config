@@ -109,9 +109,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Quick Lauch mode
-set $mode_launch Chromium | Nautilus | Sublime | GoLand | WebStorm | Discord | Parameters
+set $mode_launch Chrome | Nautilus | Sublime | GoLand | WebStorm | Discord | Parameters
 mode "$mode_launch" {
-    bindsym c exec --no-startup-id chromium ; mode "default"
+    bindsym c exec --no-startup-id google-chrome ; mode "default"
     bindsym n exec --no-startup-id nautilus ; mode "default"
     bindsym s exec --no-startup-id subl ; mode "default"
     bindsym g exec --no-startup-id goland ; mode "default"
@@ -165,19 +165,19 @@ new_window none
 # Compton
 exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/compton.conf"
 
-# Enable themes
-exec_always --no-startup-id mate-settings-daemon
-
 # Screenshot
-bindsym Print exec "flameshot gui -p ~/Screenshots"
+bindsym Print exec --no-startup-id "flameshot gui -p ~/Screenshots"
 
 # Audio output switcher
 set $sink1 alsa_output.pci-0000_00_1b.0.analog-stereo
 set $sink2 alsa_output.usb-Logitech_Logitech_G430_Gaming_Headset-00.analog-stereo
-bindsym $mod+o exec "if pactl info | grep -q $sink2; then pacmd set-default-sink $sink1; else pacmd set-default-sink $sink2; fi"
+bindsym $mod+o exec --no-startup-id "if pactl info | grep -q $sink2; then pacmd set-default-sink $sink1; else pacmd set-default-sink $sink2; fi"
+
+# Mouse sensivity
+exec_always --no-startup-id  xinput --set-prop "SteelSeries Kana v2 Gaming Mouse" "Coordinate Transformation Matrix" 0.5 0 0 0 0.5 0 0 0 1
 
 # Assign apps to workspaces
-assign [class="Chromium"] → $w1
+assign [class="Google-chrome"] → $w1
 assign [class="Firefox"] → $w1
 assign [class="jetbrains-phpstorm" window_type="normal"] → $w3
 assign [class="jetbrains-webstorm" window_type="normal"] → $w3
@@ -200,7 +200,7 @@ rename workspace 4 to $w4; \
 
 # Start default apps with correct layouts
 bindsym $mod+m rename workspace 1 to $w1; \
-exec --no-startup-id chromium; \
+exec --no-startup-id google-chrome; \
 exec --no-startup-id discord; \
 rename workspace 2 to $w2; \
 rename workspace 4 to $w4; \

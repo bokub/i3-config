@@ -8,7 +8,7 @@ color=#9aedfe
 
 [memory]
 label=  
-command=~/.config/i3/i3blocks/memory
+command=~/.config/i3blocks/memory/memory
 interval=15
 color=#ff6ac1
 
