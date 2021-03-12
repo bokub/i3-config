@@ -12,6 +12,7 @@ All these files should be placed in `~/.config/i3`
 
 ## Dependencies
 
+- [Regolith](https://regolith-linux.org/) (i3 for Ubuntu & Gnome)
 - [i3-gaps](https://github.com/Airblader/i3) (a fork of i3)
 - [i3blocks](https://github.com/vivien/i3blocks) (status bar)
 - [Rofi](https://github.com/DaveDavenport/rofi) (app launcher)
@@ -32,25 +33,16 @@ curl -fsSL https://git.io/i3-config | bash
 
 The command above will:
 
-- Install i3-gaps dependencies and build i3-gaps from source
-- Build i3blocks from source
-- Install Rofi, Compton, Dunst and Nitrogen
+- ~~Install i3-gaps dependencies and build i3-gaps from source~~
+- ~~Build i3blocks from source~~
+- Install ~~Rofi, Compton,~~ Dunst and Nitrogen
+- Install Regolith, which includes i3-gaps, i3blocks, Rofi and Compton
 - Download and install Font Awesome fonts
 - Override i3 config with this repository
 - Download and set the wallpaper
 - Install Starship
 - Install Snazzy color scheme for gnome-terminal
 - Install Dracula theme for GTK
-- Install Flameshot (screenshot tool)
+- Install Flameshot, Google Chrome, Sublime Text, and Node.js
 
-The script should work on a fresh Ubuntu setup. For any other distro, I have no idea.
-
-## Using on a HiDPI display
-
-The following makes things bigger when I'm working on my HiDPI monitor:
-
-```bash
-echo "export GDK_DPI_SCALE=1.1" >> ~/.profile
-echo "Xft.dpi: 125" >> ~/.Xresources
-```
-
+The script should work on a fresh Ubuntu setup. For any other distro, I'm almost sure it won't work.

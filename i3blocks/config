@@ -1,4 +1,5 @@
-separator_block_width=25
+# separator_block_width=25
+separator_block_width=50
 
 [disk-root]
 label=  
@@ -37,17 +38,17 @@ interval=2
 signal=10
 color=#FFB86C
 
+[battery]
+command=~/.config/i3blocks/battery2/battery2
+markup=pango
+interval=15
+
 [time]
 label=  
 command=date '+%a %d %b %R:%S %p'
 interval=1
 color=#5af78e
 
-# [battery]
-# label=  
-# command=/usr/share/i3blocks/battery BAT0
-# interval=30
-# color=#F9E060
 
 # [weekend]
 # label=  
@@ -67,50 +68,4 @@ color=#5af78e
 # interval=60
 # color=#F9E060
 
-# [swap]
-# label=Swap:  
-# command=/usr/share/i3blocks/memory swap
-# interval=30
 
-# [mail]
-# label=  
-# command=~/.i3/.mail.sh.x
-# interval=100
-# color=#7F00FF
-
-# [disk-home]
-# label=:  
-# command=/usr/share/i3blocks/disk $HOME
-# interval=30
-# color=#859900
-
-# [ssid]
-# label=  
-# command=echo "$(iw dev wlo1 link | grep SSID | cut -d " " -f 2-)"
-# color=#d33682
-# interval=5
-
-# [wireless]
-# label=W  
-# instance=wlo1
-# command=/usr/share/i3blocks/iface
-# color=#00FF00
-# interval=10
-
-# [ethernet]
-# label=E  
-# instance=eno1
-# command=/usr/share/i3blocks/network
-# color=#00FF00
-# interval=10
-
-# [strength]
-# command=echo "$(iw dev wlo1 link | grep signal | cut -d " " -f 2-)"
-# interval=10
-# color=#cb4b16
-
-# [temp]
-# label=  
-# command=echo "$(sensors coretemp-isa-0000 | awk '/Physical/ {print $4}')"
-# interval=10
-# color=#b58900

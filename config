@@ -84,9 +84,6 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+ccedilla move container to workspace number 9
 bindsym $mod+Shift+agrave move container to workspace number 10
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
@@ -109,7 +106,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Quick Lauch mode
-set $mode_launch Chrome | Nautilus | Sublime | GoLand | WebStorm | Discord | Parameters
+set $mode_launch Chrome | Nautilus | Sublime | GoLand | WebStorm | Discord
 mode "$mode_launch" {
     bindsym c exec --no-startup-id google-chrome ; mode "default"
     bindsym n exec --no-startup-id nautilus ; mode "default"
@@ -117,7 +114,6 @@ mode "$mode_launch" {
     bindsym g exec --no-startup-id goland ; mode "default"
     bindsym w exec --no-startup-id webstorm ; mode "default"
     bindsym d exec --no-startup-id discord ; mode "default"
-    bindsym p exec --no-startup-id gnome-control-center ; mode "default"
 
     bindsym Escape mode "default"
 }
@@ -156,8 +152,14 @@ exec_always --no-startup-id  bash -c "if xset q | grep -q 'Num Lock: *off'; then
 # Notifications
 exec_always --no-startup-id "pkill dunst; dunst -config ~/.config/i3/dunstrc"
 
+# Network applet
+exec --no-startup-id "/usr/bin/nm-applet"
+
 # Use rofi, not dmenu
 bindsym $mod+d exec --no-startup-id "rofi -show drun -config ~/.config/i3/rofi"
+
+# Search files
+bindsym $mod+Shift+f exec --no-startup-id "rofi -show find -modi find:/usr/share/rofi/modi/finder.sh"
 
 # No border
 new_window none
@@ -167,6 +169,10 @@ exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/c
 
 # Screenshot
 bindsym Print exec --no-startup-id "flameshot gui -p ~/Screenshots"
+
+# Settings
+bindsym $mod+c exec "gnome-control-center --class=floating_window"
+bindsym $mod+w exec "gnome-control-center --class=floating_window wifi"
 
 # Audio output switcher
 set $sink1 alsa_output.pci-0000_00_1b.0.analog-stereo
@@ -190,6 +196,7 @@ workspace "$w2" output VGA-2
 workspace "$w3" output VGA-2
 
 for_window [window_role="pop-up"] floating enable
+for_window [class="floating_window"] floating enable
 
 # Auto-rename command
 bindsym $mod+Shift+n \
@@ -211,6 +218,7 @@ workspace $w1
 
 # Rename workspace shorcut
 bindsym $mod+n exec "~/.config/i3/rename-workspace.sh"
+
 
 # Bar appearance
 bar {
@@ -236,3 +244,7 @@ client.focused #81a2be #81a2be #1d1f21 #282a2e
 client.focused_inactive #373b41 #373b41 #969896 #282a2e
 client.unfocused #282a2e #282a2e #969896 #282a2e
 client.urgent #373b41 #cc6666 #ffffff #cc6666
+
+
+# Set DPI
+exec_always --no-startup-id "xrandr --dpi 200"
