@@ -46,3 +46,15 @@ The command above will:
 - Install Flameshot, Google Chrome, Sublime Text, and Node.js
 
 The script should work on a fresh Ubuntu setup. For any other distro, I'm almost sure it won't work.
+
+## Using on a HiDPI display
+
+You can set scale and DPI value like this:
+
+```bash
+# i3
+echo "Xft.dpi: 125" >> ~/.Xresources
+
+# Other apps (Chrome, Nautilus, Terminal...)
+echo "export GDK_DPI_SCALE=1.25" >> ~/.profile
+```

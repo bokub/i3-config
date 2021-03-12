@@ -158,6 +158,9 @@ exec --no-startup-id "/usr/bin/nm-applet"
 # Use rofi, not dmenu
 bindsym $mod+d exec --no-startup-id "rofi -show drun -config ~/.config/i3/rofi"
 
+# Lock
+bindsym $mod+l exec --no-startup-id "dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock"
+
 # Search files
 bindsym $mod+Shift+f exec --no-startup-id "rofi -show find -modi find:/usr/share/rofi/modi/finder.sh"
 
@@ -244,7 +247,3 @@ client.focused #81a2be #81a2be #1d1f21 #282a2e
 client.focused_inactive #373b41 #373b41 #969896 #282a2e
 client.unfocused #282a2e #282a2e #969896 #282a2e
 client.urgent #373b41 #cc6666 #ffffff #cc6666
-
-
-# Set DPI
-exec_always --no-startup-id "xrandr --dpi 200"

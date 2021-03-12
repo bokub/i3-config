@@ -1,5 +1,4 @@
-# separator_block_width=25
-separator_block_width=50
+separator_block_width=25
 
 [disk-root]
 label=  
