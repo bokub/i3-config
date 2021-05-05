@@ -37,6 +37,12 @@ interval=2
 signal=10
 color=#FFB86C
 
+[nm-vpn]
+command=~/.config/i3blocks/nm-vpn/nm-vpn
+on_color=#F9E060
+label=  
+interval=10
+
 [battery]
 command=~/.config/i3blocks/battery2/battery2
 markup=pango

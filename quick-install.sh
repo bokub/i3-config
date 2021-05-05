@@ -96,10 +96,10 @@ sudo apt-get install -y apt-transport-https
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 
 # Install Node.js
-curl -fsSL https://deb.nodesource.com/setup_15.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 
 sudo apt-get update
-sudo apt-get install -y google-chrome-stable sublime-text nodejs
+sudo apt-get install -y google-chrome-stable sublime-text nodejs build-essential
 
 # Cleanup
 cd && rm -fr i3-gaps i3blocks snazzy Font-Awesome
