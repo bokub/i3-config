@@ -180,13 +180,9 @@ bindsym $mod+w exec "gnome-control-center --class=floating_window wifi"
 # Audio output switcher
 set $sink1 alsa_output.pci-0000_00_1b.0.analog-stereo
 set $sink2 alsa_output.usb-Logitech_Logitech_G430_Gaming_Headset-00.analog-stereo
+# If that doesn't work, run this and reboot:
+# gsettings set org.gnome.settings-daemon.plugins.media-keys rotate-video-lock-static "[]"
 bindsym $mod+o exec --no-startup-id "if pactl info | grep -q $sink2; then pacmd set-default-sink $sink1; else pacmd set-default-sink $sink2; fi"
-
-# Touchpad toggle
-bindsym $mod+t exec --no-startup-id "if synclient | grep TouchpadOff | grep -q 1; then synclient TouchpadOff=0; else synclient TouchpadOff=1; fi"
-
-# Mouse sensivity
-exec_always --no-startup-id  xinput --set-prop "SteelSeries Kana v2 Gaming Mouse" "Coordinate Transformation Matrix" 0.5 0 0 0 0.5 0 0 0 1
 
 # Assign apps to workspaces
 assign [class="Google-chrome"] → $w1
@@ -214,7 +210,6 @@ rename workspace 4 to $w4; \
 # Start default apps with correct layouts
 bindsym $mod+m rename workspace 1 to $w1; \
 exec --no-startup-id google-chrome; \
-exec --no-startup-id discord; \
 rename workspace 2 to $w2; \
 rename workspace 4 to $w4; \
 workspace $w2; \
