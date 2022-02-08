@@ -119,6 +119,15 @@ mode "$mode_launch" {
 }
 bindsym $mod+Tab mode "$mode_launch"
 
+# HiDpi Lauch mode
+set $mode_hidpi HiDpi | LowDpi
+mode "$mode_hidpi" {
+    bindsym h exec --no-startup-id ~/.config/i3/dpi.sh high ; mode "default"
+    bindsym l exec --no-startup-id ~/.config/i3/dpi.sh low ; mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+i mode "$mode_hidpi"
+
 # Gaps size
 gaps inner 12
 gaps outer 0
@@ -178,11 +187,15 @@ bindsym $mod+c exec "gnome-control-center --class=floating_window"
 bindsym $mod+w exec "gnome-control-center --class=floating_window wifi"
 
 # Audio output switcher
-set $sink1 alsa_output.pci-0000_00_1b.0.analog-stereo
+set $sink1 alsa_output.usb-C-Media_Electronics_Inc._USB_PnP_Sound_Device-00.analog-stereo
 set $sink2 alsa_output.usb-Logitech_Logitech_G430_Gaming_Headset-00.analog-stereo
 # If that doesn't work, run this and reboot:
 # gsettings set org.gnome.settings-daemon.plugins.media-keys rotate-video-lock-static "[]"
 bindsym $mod+o exec --no-startup-id "if pactl info | grep -q $sink2; then pacmd set-default-sink $sink1; else pacmd set-default-sink $sink2; fi"
+
+# Toggle touchpad
+set $touchpad 'SynPS/2 Synaptics TouchPad'
+bindsym $mod+t exec --no-startup-id "if xinput list-props $touchpad | grep 'Device Enabled' | grep -q '1'; then xinput disable $touchpad; else xinput enable $touchpad; fi"
 
 # Assign apps to workspaces
 assign [class="Google-chrome"] → $w1
@@ -193,9 +206,9 @@ assign [class="jetbrains-goland" window_type="normal"] → $w3
 assign [class="discord"] → $w4
 
 # Assign workspaces to output
-workspace "$w1" output VGA-1
-workspace "$w2" output VGA-2
-workspace "$w3" output VGA-2
+workspace "$w1" output DP-1-1
+workspace "$w2" output eDP-1-1
+workspace "$w3" output DP-1-1
 
 for_window [window_role="pop-up"] floating enable
 for_window [class="floating_window"] floating enable
@@ -210,6 +223,7 @@ rename workspace 4 to $w4; \
 # Start default apps with correct layouts
 bindsym $mod+m rename workspace 1 to $w1; \
 exec --no-startup-id google-chrome; \
+exec --no-startup-id webstorm; \
 rename workspace 2 to $w2; \
 rename workspace 4 to $w4; \
 workspace $w2; \
@@ -225,18 +239,19 @@ bindsym $mod+n exec "~/.config/i3/rename-workspace.sh"
 bar {
     font pango:DejaVu Sans, Font Awesome 5 Free Solid 10
     status_command i3blocks -c ~/.config/i3/i3blocks/config
+    i3bar_command i3bar -t
     position top
     tray_output primary
     mode dock
     hidden_state show
     verbose yes
     colors {
-        separator #969896
-        background #1d1f21
-        statusline #c5c8c6
+        separator #969896aa
+        background #1d1f21aa
+        statusline #c5c8c6aa
         focused_workspace #81a2be #81a2be #1d1f21
         active_workspace #373b41 #373b41 #ffffff
-        inactive_workspace #282a2e #282a2e #969896
+        inactive_workspace #282a2eaa #282a2eaa #969896
         urgent_workspace #cc6666 #cc6666 #ffffff
     }
 }

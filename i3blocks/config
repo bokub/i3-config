@@ -1,5 +1,10 @@
 separator_block_width=25
 
+[mediaplayer]
+instance=chromium
+command=~/.config/i3blocks/mediaplayer/mediaplayer
+interval=5
+
 [disk-root]
 label=  
 command=~/.config/i3blocks/disk/disk /
@@ -34,8 +39,10 @@ SENSOR_CHIP=coretemp-isa-0000
 [volume]
 command=echo "$(if pactl info | grep Sink | grep -q Headset; then echo ; else echo ; fi)  $(~/.config/i3blocks/volume/volume "5%" pulse)"
 interval=2
-signal=10
 color=#FFB86C
+# MIXER=hw:3
+# SCONTROL=PCM
+NATURAL_MAPPING=1
 
 [nm-vpn]
 command=~/.config/i3blocks/nm-vpn/nm-vpn

@@ -38,7 +38,7 @@ sudo apt install -y regolith-desktop-mobile
 git clone https://github.com/vivien/i3blocks-contrib ~/.config/i3blocks
 
 # Install other tools
-sudo apt install -y nitrogen xdotool dunst lm-sensors sysstat acpi # rofi compton 
+sudo apt install -y nitrogen xdotool dunst lm-sensors sysstat acpi playerctl # rofi compton 
 
 # Download and install font-awesome
 sudo mkdir -p /usr/share/fonts/opentype/font-awesome
