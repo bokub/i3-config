@@ -58,3 +58,13 @@ echo "Xft.dpi: 125" >> ~/.Xresources
 # Other apps (Chrome, Nautilus, Terminal...)
 echo "export GDK_DPI_SCALE=1.25" >> ~/.profile
 ```
+
+Or just use the `dpi.sh` script from this repo:
+
+```bash
+~/.config/i3/dpi.sh high # On HiDpi display
+
+~/.config/i3/dpi.sh low # On regular display
+
+sudo reboot
+```

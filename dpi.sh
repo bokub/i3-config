@@ -2,7 +2,7 @@
 
 #
 # Quickly change HiDpi settings to 'high' or 'low'
-# N.B: You need to log out and log in again to see the changes.
+# N.B: You may need to reboot to see the changes.
 #  
 # Usage:
 # $ dpi.sh high|low
@@ -25,7 +25,7 @@ process_arguments() {
 
 hidpi() {
     # Write Xft.dpi in .Xresources
-    echo -e "Xft.dpi: 125 # High\n# Xft.dpi: 96 # Low" > ~/.Xresources
+    echo -e "Xft.dpi: 125" > ~/.Xresources
 
     # Replace GDK_DPI_SCALE in .profile
     sed -i '/GDK_DPI_SCALE/d' ~/.profile
@@ -34,7 +34,7 @@ hidpi() {
 
 lowdpi() {
     # Write Xft.dpi in .Xresources
-    echo -e "Xft.dpi: 96 # Low\n# Xft.dpi: 125 # High" > ~/.Xresources
+    echo -e "Xft.dpi: 96" > ~/.Xresources
 
     # Replace GDK_DPI_SCALE in .profile
     sed -i '/GDK_DPI_SCALE/d' ~/.profile

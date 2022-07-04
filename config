@@ -238,7 +238,7 @@ bindsym $mod+n exec "~/.config/i3/rename-workspace.sh"
 # Bar appearance
 bar {
     font pango:DejaVu Sans, Font Awesome 5 Free Solid 10
-    status_command i3blocks -c ~/.config/i3/i3blocks/config
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
     i3bar_command i3bar -t
     position top
     tray_output primary
