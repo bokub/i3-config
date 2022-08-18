@@ -60,29 +60,51 @@ bindsym $mod+Shift+b floating toggle
 bindsym $mod+space focus mode_toggle
 bindsym $mod+b focus mode_toggle
 
-# switch to workspace
-bindsym $mod+ampersand workspace number 1
-bindsym $mod+eacute workspace number 2
-bindsym $mod+quotedbl workspace number 3
+# Workspace names
+set $w1 1 :  browser
+set $w2 2 :  terminal
+set $w3 3 :  code
+set $w10 10 :  meet
+
+# Switch to workspace
+bindsym $mod+ampersand workspace $w1
+bindsym $mod+eacute workspace $w2
+bindsym $mod+quotedbl workspace $w3
 bindsym $mod+apostrophe workspace number 4
 bindsym $mod+parenleft workspace number 5
 bindsym $mod+minus workspace number 6
 bindsym $mod+egrave workspace number 7
 bindsym $mod+underscore workspace number 8
 bindsym $mod+ccedilla workspace number 9
-bindsym $mod+agrave workspace number 10
+bindsym $mod+agrave workspace $w10
 
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+eacute move container to workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $w1
+bindsym $mod+Shift+eacute move container to workspace $w2
+bindsym $mod+Shift+3 move container to workspace $w3
 bindsym $mod+Shift+4 move container to workspace number 4
 bindsym $mod+Shift+5 move container to workspace number 5
 bindsym $mod+Shift+6 move container to workspace number 6
 bindsym $mod+Shift+egrave move container to workspace number 7
 bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+ccedilla move container to workspace number 9
-bindsym $mod+Shift+agrave move container to workspace number 10
+bindsym $mod+Shift+agrave move container to workspace $w10
+
+# Assign apps to workspaces
+assign [class="Google-chrome"] → $w1
+assign [class="Firefox"] → $w1
+assign [class="jetbrains-phpstorm" window_type="normal"] → $w3
+assign [class="jetbrains-webstorm" window_type="normal"] → $w3
+assign [class="jetbrains-goland" window_type="normal"] → $w3
+
+# Assign workspaces to output
+workspace "$w1" output DP-1-1
+workspace "$w2" output eDP-1-1
+workspace "$w3" output DP-1-1
+workspace "$w10" output eDP-1-1
+
+for_window [window_role="pop-up"] floating enable
+for_window [class="floating_window"] floating enable
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -132,11 +154,6 @@ bindsym $mod+Shift+i mode "$mode_hidpi"
 gaps inner 12
 gaps outer 0
 
-# Workspace names
-set $w1 1 :  browser
-set $w2 2 :  terminal
-set $w3 3 :  code
-set $w4 4 :  messaging
 
 # Options
 popup_during_fullscreen leave_fullscreen
@@ -162,7 +179,7 @@ exec_always --no-startup-id  bash -c "if xset q | grep -q 'Num Lock: *off'; then
 exec_always --no-startup-id "pkill dunst; dunst -config ~/.config/i3/dunstrc"
 
 # Network applet
-exec --no-startup-id "/usr/bin/nm-applet"
+exec_always --no-startup-id "/usr/bin/nm-applet"
 
 # Use rofi, not dmenu
 bindsym $mod+d exec --no-startup-id "rofi -show drun -config ~/.config/i3/rofi"
@@ -180,7 +197,8 @@ new_window none
 exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/compton.conf"
 
 # Screenshot
-bindsym Print exec --no-startup-id "flameshot gui -p ~/Screenshots"
+exec_always --no-startup-id "killall -q flameshot; flameshot &"
+bindsym Print exec "flameshot gui"
 
 # Settings
 bindsym $mod+c exec "gnome-control-center --class=floating_window"
@@ -189,29 +207,14 @@ bindsym $mod+w exec "gnome-control-center --class=floating_window wifi"
 # Audio output switcher
 set $sink1 alsa_output.usb-C-Media_Electronics_Inc._USB_PnP_Sound_Device-00.analog-stereo
 set $sink2 alsa_output.usb-Logitech_Logitech_G430_Gaming_Headset-00.analog-stereo
+set $source alsa_input.usb-Logitech_Logitech_G430_Gaming_Headset-00.mono-fallback
 # If that doesn't work, run this and reboot:
 # gsettings set org.gnome.settings-daemon.plugins.media-keys rotate-video-lock-static "[]"
-bindsym $mod+o exec --no-startup-id "if pactl info | grep -q $sink2; then pacmd set-default-sink $sink1; else pacmd set-default-sink $sink2; fi"
+bindsym $mod+o exec --no-startup-id "if pactl info | grep -q $sink2; then pacmd set-default-sink $sink1; else pacmd set-default-sink $sink2; pacmd set-default-source $source; fi"
 
 # Toggle touchpad
 set $touchpad 'SynPS/2 Synaptics TouchPad'
 bindsym $mod+t exec --no-startup-id "if xinput list-props $touchpad | grep 'Device Enabled' | grep -q '1'; then xinput disable $touchpad; else xinput enable $touchpad; fi"
-
-# Assign apps to workspaces
-assign [class="Google-chrome"] → $w1
-assign [class="Firefox"] → $w1
-assign [class="jetbrains-phpstorm" window_type="normal"] → $w3
-assign [class="jetbrains-webstorm" window_type="normal"] → $w3
-assign [class="jetbrains-goland" window_type="normal"] → $w3
-assign [class="discord"] → $w4
-
-# Assign workspaces to output
-workspace "$w1" output DP-1-1
-workspace "$w2" output eDP-1-1
-workspace "$w3" output DP-1-1
-
-for_window [window_role="pop-up"] floating enable
-for_window [class="floating_window"] floating enable
 
 # Auto-rename command
 bindsym $mod+Shift+n \
@@ -219,21 +222,16 @@ rename workspace 1 to $w1; \
 rename workspace 2 to $w2; \
 rename workspace 3 to $w3; \
 rename workspace 4 to $w4; \
+rename workspace 10 to $w10; \
+
 
 # Start default apps with correct layouts
-bindsym $mod+m rename workspace 1 to $w1; \
-exec --no-startup-id google-chrome; \
+bindsym $mod+m exec --no-startup-id google-chrome; \
 exec --no-startup-id webstorm; \
-rename workspace 2 to $w2; \
-rename workspace 4 to $w4; \
 workspace $w2; \
 exec "sh -c 'sleep 0.1; exec gnome-terminal'"; \
 exec "sh -c 'sleep 0.2; exec gnome-terminal'"; \
 workspace $w1
-
-# Rename workspace shorcut
-bindsym $mod+n exec "~/.config/i3/rename-workspace.sh"
-
 
 # Bar appearance
 bar {
