@@ -216,6 +216,9 @@ bindsym $mod+o exec --no-startup-id "if pactl info | grep -q $sink2; then pacmd 
 set $touchpad 'SynPS/2 Synaptics TouchPad'
 bindsym $mod+t exec --no-startup-id "if xinput list-props $touchpad | grep 'Device Enabled' | grep -q '1'; then xinput disable $touchpad; else xinput enable $touchpad; fi"
 
+# Configure mouse colors
+exec_always --no-startup-id rivalcfg --z1 FF3300 --z2 FF0033 --z3 FF0099
+
 # Auto-rename command
 bindsym $mod+Shift+n \
 rename workspace 1 to $w1; \

@@ -101,6 +101,11 @@ curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 sudo apt-get update
 sudo apt-get install -y google-chrome-stable sublime-text nodejs build-essential
 
+# Install rivalcfg
+sudo apt-get install -y python3-pip python3-dev python3-setuptools libusb-1.0-0-dev libudev-dev
+sudo pip3 install rivalcfg
+sudo rivalcfg --update-udev
+
 # Cleanup
 cd && rm -fr i3-gaps i3blocks snazzy Font-Awesome
 
