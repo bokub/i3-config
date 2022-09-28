@@ -217,7 +217,11 @@ set $touchpad 'SynPS/2 Synaptics TouchPad'
 bindsym $mod+t exec --no-startup-id "if xinput list-props $touchpad | grep 'Device Enabled' | grep -q '1'; then xinput disable $touchpad; else xinput enable $touchpad; fi"
 
 # Configure mouse colors
-exec_always --no-startup-id rivalcfg --z1 FF3300 --z2 FF0033 --z3 FF0099
+set $z1 FF0099
+set $z2 FF0033
+set $z3 FF3300
+exec_always --no-startup-id rivalcfg --z1 $z1 --z2 $z2 --z3 $z3
+bindsym $mod+Shift+m exec --no-startup-id rivalcfg --z1 $z1 --z2 $z2 --z3 $z3;
 
 # Auto-rename command
 bindsym $mod+Shift+n \
@@ -231,6 +235,7 @@ rename workspace 10 to $w10; \
 # Start default apps with correct layouts
 bindsym $mod+m exec --no-startup-id google-chrome; \
 exec --no-startup-id webstorm; \
+exec --no-startup-id rivalcfg --z1 $z1 --z2 $z2 --z3 $z3; \
 workspace $w2; \
 exec "sh -c 'sleep 0.1; exec gnome-terminal'"; \
 exec "sh -c 'sleep 0.2; exec gnome-terminal'"; \
