@@ -12,7 +12,7 @@ All these files should be placed in `~/.config/i3`
 
 ## Dependencies
 
-- [Regolith](https://regolith-linux.org/) (i3 for Ubuntu & Gnome)
+- [Regolith](https://regolith-desktop.com/) (i3 for Ubuntu & Gnome)
 - [i3-gaps](https://github.com/Airblader/i3) (a fork of i3)
 - [i3blocks](https://github.com/vivien/i3blocks) (status bar)
 - [Rofi](https://github.com/DaveDavenport/rofi) (app launcher)

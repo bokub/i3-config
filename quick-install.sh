@@ -9,8 +9,14 @@ sudo apt update
 sudo apt install -y git wget
 
 # Install Regolith
-sudo add-apt-repository -y ppa:regolith-linux/release
-sudo apt install -y regolith-desktop-mobile
+wget -qO - https://regolith-desktop.org/regolith.key | \
+gpg --dearmor | sudo tee /usr/share/keyrings/regolith-archive-keyring.gpg > /dev/null
+echo deb "[arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] \
+https://regolith-desktop.org/release-ubuntu-jammy-amd64 jammy main" | \
+sudo tee /etc/apt/sources.list.d/regolith.list
+sudo apt update
+sudo apt install -y regolith-desktop i3xrocks-battery
+sudo apt upgrade
 
 # # Install i3-gaps dependencies
 # sudo apt install -y meson libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
