@@ -34,9 +34,9 @@ curl -fsSL https://git.io/i3-config | bash
 The command above will:
 
 - ~~Install i3-gaps dependencies and build i3-gaps from source~~
-- ~~Build i3blocks from source~~
-- Install ~~Rofi, Compton,~~ Dunst and Nitrogen
-- Install Regolith, which includes i3-gaps, i3blocks, Rofi and Compton
+- Build i3blocks from source
+- Install Rofi, Compton, Dunst, Nitrogen...
+- Install Regolith
 - Download and install Font Awesome fonts
 - Override i3 config with this repository
 - Download and set the wallpaper

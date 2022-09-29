@@ -6,7 +6,7 @@ set -e
 sudo apt update
 
 # Just in case
-sudo apt install -y git wget
+sudo apt install -y git wget autoconf
 
 # Install Regolith
 wget -qO - https://regolith-desktop.org/regolith.key | \
@@ -33,36 +33,39 @@ sudo apt upgrade
 # ninja
 # meson install
 
-# # Build i3blocks from source
-# cd && git clone https://github.com/vivien/i3blocks
-# cd i3blocks
-# ./autogen.sh
-# ./configure
-# make
-# sudo make install
+# Build i3blocks from source
+cd && git clone https://github.com/vivien/i3blocks
+cd i3blocks
+./autogen.sh
+./configure
+make
+sudo make install
 
+sudo apt install -y git wget
+rm -fr ~/.config/i3blocks
 git clone https://github.com/vivien/i3blocks-contrib ~/.config/i3blocks
 
 # Install other tools
-sudo apt install -y nitrogen xdotool dunst lm-sensors sysstat acpi playerctl # rofi compton 
+sudo apt install -y nitrogen xdotool dunst lm-sensors sysstat acpi playerctl rofi compton 
 
 # Download and install font-awesome
-sudo mkdir -p /usr/share/fonts/opentype/font-awesome
-sudo wget https://git.io/JvHi9 -O '/usr/share/fonts/opentype/font-awesome/Font Awesome 5 Free-Solid-900.otf'
+sudo mkdir -p /usr/local/share/fonts/opentype/font-awesome
+sudo wget https://git.io/JvHi9 -O '/usr/local/share/fonts/opentype/font-awesome/Font Awesome 5 Free-Solid-900.otf'
 
 # Override config
 mkdir -p ~/.config && cd ~/.config && rm -fr i3
 git clone https://github.com/bokub/i3-config.git i3
 
 # Override Regolith config
-mkdir -p ~/.config/regolith/i3
-ln -sf ~/.config/i3/config ~/.config/regolith/i3/config
+mkdir -p ~/.config/regolith2/i3
+ln -sf ~/.config/i3/config ~/.config/regolith2/i3/config
 
 # Download and set wallpaper
 mkdir -p ~/wallpapers
 wget https://git.io/Jv7wA -O ~/wallpapers/blue_pink_gradient.jpg
-nitrogen --save --set-scaled ~/wallpapers/blue_pink_gradient.jpg --head=0 && sleep 0.5
-nitrogen --save --set-scaled ~/wallpapers/blue_pink_gradient.jpg --head=1
+nitrogen --save --set-scaled ~/wallpapers/blue_pink_gradient.jpg --head=0 || echo -e "\e[33mCould not set wallpaper..."
+sleep 0.5
+nitrogen --save --set-scaled ~/wallpapers/blue_pink_gradient.jpg --head=1 || echo -e "\e[33mCould not set wallpaper..."
 
 # Install zsh
 sudo apt install -y zsh
@@ -70,7 +73,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 # Install Starship
 cd && wget https://starship.rs/install.sh -O install_starship.sh
-bash install_starship.sh -y
+sh install_starship.sh -y
 echo 'eval "$(starship init bash)"' >> .bashrc
 echo 'eval "$(starship init zsh)"' >> .zshrc
 rm install_starship.sh
