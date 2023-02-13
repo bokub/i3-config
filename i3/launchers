@@ -1,0 +1,16 @@
+# Compositor
+exec_always --no-startup-id /usr/share/regolith-compositor/init
+
+# Screenshots
+exec_always --no-startup-id "killall -q flameshot; flameshot &"
+
+# Network applet
+exec --no-startup-id /usr/bin/nm-applet
+
+# Unclutter
+exec --no-startup-id /usr/bin/unclutter -b
+
+# Notifications
+exec --no-startup-id /usr/bin/rofication-daemon
+
+

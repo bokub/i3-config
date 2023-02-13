@@ -2,27 +2,35 @@
 
 > A backup of my [i3wm](https://i3wm.org/) config.
 
-All these files should be placed in `~/.config/i3`
-
 <p align="center">
-  <img alt="System" src="https://raw.githubusercontent.com/bokub/i3-config/images/screenshots/tiles.png">
-  <img alt="Files" src="https://raw.githubusercontent.com/bokub/i3-config/images/screenshots/neofetch.png">
-  <img alt="Tiles" src="https://raw.githubusercontent.com/bokub/i3-config/images/screenshots/browser.png">
+  <img alt="Terminal" src="https://user-images.githubusercontent.com/17952318/218422401-8b36efd8-f0c0-4ac7-b172-7f474c554bad.png">
+  <img alt="Neofetch" src="https://user-images.githubusercontent.com/17952318/218422393-94970dee-bca6-4df3-8eb7-70b872e92b74.png">
+  <img alt="Browser" src="https://user-images.githubusercontent.com/17952318/218422399-a0064ce2-11cc-4b8d-9641-ce5067aabef1.png">
 </p>
+
+## Introduction
+
+**N.B**: During a few years, I used to build i3-gaps from source, and install all multiple dependencies separately.
+
+The installation script was very complicated and always broken.
+
+I've now switched to [Regolith](https://regolith-desktop.com/), which integrates very well with Ubuntu, and is easier to insall.
+
+This repository can be cloned anywhere you want, but you'll have to symlink each one of these to the right place:
+
+| Source | Destination |
+|---|---|
+| i3 | ~/.config/regolith2/i3/config.d |
+| bar | ~/.config/regolith2/i3rocks/conf.d |
+| dunstrc | ~/.config/dunst/dunstrc |
+| Xresources | ~/.config/regolith2/Xresources |
 
 ## Dependencies
 
-- [Regolith](https://regolith-desktop.com/) (i3 for Ubuntu & Gnome)
-- [i3-gaps](https://github.com/Airblader/i3) (a fork of i3)
-- [i3blocks](https://github.com/vivien/i3blocks) (status bar)
-- [Rofi](https://github.com/DaveDavenport/rofi) (app launcher)
-- [Compton](https://github.com/chjj/compton) (shadows & opacity)
+- [Regolith](https://regolith-desktop.com) (i3 for Ubuntu & Gnome)
 - [Dunst](https://github.com/dunst-project/dunst) (notification daemon)
-- [Font Awesome](http://fontawesome.io/) (icons)
-- [Nitrogen](https://github.com/l3ib/nitrogen/) (wallpaper manager)
+- [Font Awesome](https://fontawesome.com) (icons)
 - [Starship](https://github.com/starship/starship) (shell prompt)
-- [Snazzy](https://github.com/tobark/hyper-snazzy-gnome-terminal) (terminal color scheme)
-- [Dracula](https://draculatheme.com/gtk) (dark theme for GTK)
 
 ## Quick install
 
@@ -33,19 +41,15 @@ curl -fsSL https://git.io/i3-config | bash
 
 The command above will:
 
-- ~~Install i3-gaps dependencies and build i3-gaps from source~~
-- Build i3blocks from source
-- Install Rofi, Compton, Dunst, Nitrogen...
-- Install Regolith
-- Download and install Font Awesome fonts
-- Override i3 config with this repository
-- Download and set the wallpaper
-- Install Starship
-- Install Snazzy color scheme for gnome-terminal
-- Install Dracula theme for GTK
-- Install Flameshot, Google Chrome, Sublime Text, and Node.js
+- Install Regolith Desktop and some sub-dependencies
+- Remove all default Regolith settings
+- Build and install dunst from source
+- Clone this repository in `~/.i3-config` and create symlinks
+- Install i3blocks scripts
+- Download and install fonts & wallpaper
+- Install zsh, Starship, Google Chrome, Sublime Text, Node.js, rivalcfg, Flameshot
 
-The script should work on a fresh Ubuntu setup. For any other distro, I'm almost sure it won't work.
+The script should work on a fresh Ubuntu 22.04 setup. For any other distro, I'm almost sure it won't work.
 
 ## Using on a HiDPI display
 

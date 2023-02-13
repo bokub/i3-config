@@ -1,0 +1,42 @@
+# Resize
+mode "Resize mode" {
+    # arrow keys
+    bindsym Left    resize shrink   width   10 px or 10 ppt
+    bindsym Down    resize grow     height  10 px or 10 ppt
+    bindsym Up      resize shrink   height  10 px or 10 ppt
+    bindsym Right   resize grow     width   10 px or 10 ppt
+
+    # Shift + arrow keys
+    bindsym Shift+Left    resize shrink   width   20 px or 20 ppt
+    bindsym Shift+Down    resize grow     height  20 px or 20 ppt
+    bindsym Shift+Up      resize shrink   height  20 px or 20 ppt
+    bindsym Shift+Right   resize grow     width   20 px or 20 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "Resize mode"
+
+# Quick Lauch mode
+set $mode_launch Chrome | Nautilus | Sublime | GoLand | WebStorm | Discord
+mode "$mode_launch" {
+    bindsym c exec --no-startup-id google-chrome; mode "default"
+    bindsym n exec --no-startup-id nautilus; mode "default"
+    bindsym s exec --no-startup-id subl; mode "default"
+    bindsym g exec --no-startup-id goland; mode "default"
+    bindsym w exec --no-startup-id webstorm; mode "default"
+    bindsym d exec --no-startup-id discord; mode "default"
+
+    bindsym Escape mode "default"
+}
+bindsym $mod+Tab mode "$mode_launch"
+
+# HiDpi Lauch mode
+set $mode_hidpi HiDpi | LowDpi
+mode "$mode_hidpi" {
+    bindsym h exec --no-startup-id ~/.config/i3/dpi.sh high ; mode "default"
+    bindsym l exec --no-startup-id ~/.config/i3/dpi.sh low ; mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+i mode "$mode_hidpi"

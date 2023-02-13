@@ -1,0 +1,84 @@
+# Focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Moving windows
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Split modes
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# Fullscreen
+bindsym $mod+f fullscreen toggle
+
+# Change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+z layout tabbed
+bindsym $mod+e layout toggle split
+
+# Toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+b floating toggle
+
+# Change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+bindsym $mod+b focus mode_toggle
+
+# Move worspace on left or right screen
+bindsym $mod+j move workspace to output left
+bindsym $mod+k move workspace to output right
+
+# Workspace names
+set $w1 1 :  browser
+set $w2 2 :  terminal
+set $w3 3 :  code
+set $w10 10 :  meet
+
+# Switch to workspace
+bindsym $mod+ampersand workspace $w1
+bindsym $mod+eacute workspace $w2
+bindsym $mod+quotedbl workspace $w3
+bindsym $mod+apostrophe workspace number 4
+bindsym $mod+parenleft workspace number 5
+bindsym $mod+minus workspace number 6
+bindsym $mod+egrave workspace number 7
+bindsym $mod+underscore workspace number 8
+bindsym $mod+ccedilla workspace number 9
+bindsym $mod+agrave workspace $w10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $w1
+bindsym $mod+Shift+eacute move container to workspace $w2
+bindsym $mod+Shift+3 move container to workspace $w3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+egrave move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+ccedilla move container to workspace number 9
+bindsym $mod+Shift+agrave move container to workspace $w10
+
+# Assign apps to workspaces
+assign [class="Google-chrome"] → $w1
+assign [class="Firefox"] → $w1
+assign [class="jetbrains-phpstorm" window_type="normal"] → $w3
+assign [class="jetbrains-webstorm" window_type="normal"] → $w3
+assign [class="jetbrains-goland" window_type="normal"] → $w3
+
+# Assign workspaces to output
+workspace "$w1" output DP-1-1
+workspace "$w2" output eDP-1-1
+workspace "$w3" output DP-1-1
+workspace "$w10" output eDP-1-1
+
+for_window [window_role="pop-up"] floating enable
+for_window [class="floating_window"] floating enableq
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod

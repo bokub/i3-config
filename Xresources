@@ -1,0 +1,25 @@
+regolith.look.path: /usr/share/regolith-look/dracula
+
+regolith.wallpaper.file:	~/wallpapers/blue_pink_gradient.jpg
+gtk.font_name: 				Ubuntu Regular 12
+gtk.icon_theme_name: 		Papirus
+
+gnome.terminal.font:	DejaVu Sans Mono 11
+gnome.terminal.color0:  #282a36
+gnome.terminal.color1:  #ff5c57
+gnome.terminal.color2:  #5af78e
+gnome.terminal.color3:  #f3f99d
+gnome.terminal.color4:  #57c7ff
+gnome.terminal.color5:  #ff6ac1
+gnome.terminal.color6:  #9aedfe
+gnome.terminal.color7:  #f1f1f0
+gnome.terminal.color8:  #686868
+gnome.terminal.color9:  #ff5c57
+gnome.terminal.color10: #5af78e
+gnome.terminal.color11: #f3f99d
+gnome.terminal.color12: #57c7ff
+gnome.terminal.color13: #ff6ac1
+gnome.terminal.color14: #9aedfe
+gnome.terminal.color15: #eff0eb
+
+gnome.terminal.use-transparent-background: false

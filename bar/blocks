@@ -1,0 +1,65 @@
+[mediaplayer]
+instance=chromium
+command=~/.config/i3blocks/mediaplayer/mediaplayer
+interval=5
+
+[disk-root]
+label=<span font_desc="Font Awesome 6 Pro Solid">  </span>
+command=~/.config/i3blocks/disk/disk /
+interval=30
+color=#9aedfe
+
+[memory]
+label=<span font_desc="Font Awesome 6 Pro Solid">  </span>
+command=~/.config/i3blocks/memory/memory
+interval=5
+color=#ff6ac1
+
+[cpu]
+label=<span font_desc="Font Awesome 6 Pro Solid">  </span>
+command=~/.config/i3blocks/cpu_usage/cpu_usage
+interval=5
+color=#ff5c57
+
+[load]
+label=<span font_desc="Font Awesome 6 Pro Solid">  </span>
+command=~/.config/i3blocks/load_average/load_average
+interval=5
+color=#57c7ff
+
+[temperature]
+label=<span font_desc="Font Awesome 6 Pro Solid">  </span>
+command=~/.config/i3blocks/temperature/temperature
+interval=5
+color=#F9E060
+SENSOR_CHIP=coretemp-isa-0000
+
+[volume]
+command=echo "<span font_desc=\"Font Awesome 6 Pro Solid\">$(if pactl info | grep -q "34_75_63_DC_6D_E6"; then echo ; elif pactl info | grep -q "output.usb-Logitech_G_series_G435"; then echo ; else echo ; fi)  </span>$(~/.config/i3blocks/volume/volume "5%" pulse)"
+interval=2
+color=#FFB86C
+# MIXER=hw:3
+# SCONTROL=PCM
+NATURAL_MAPPING=1
+
+[nm-vpn]
+command=~/.config/i3blocks/nm-vpn/nm-vpn
+on_color=#F9E060
+label=<span font_desc="Font Awesome 6 Pro Solid">  </span>
+interval=10
+
+[battery]
+command=~/.config/i3blocks/battery2/battery2
+interval=15
+
+[mouse]
+command=rivalcfg --battery-level | cut -f2 -d ']' | cut -c2-
+interval=30
+label=<span font_desc="Font Awesome 6 Pro Solid">  </span>
+color=#c18dff
+
+[time]
+label=<span font_desc="Font Awesome 6 Pro Solid">  </span>
+command=date '+%a %d %b %R:%S %p'
+interval=1
+color=#5af78e
