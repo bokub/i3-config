@@ -34,11 +34,13 @@ bindsym $mod+b focus mode_toggle
 bindsym $mod+j move workspace to output left
 bindsym $mod+k move workspace to output right
 
+# Back and forth with Alt+Tab
+bindsym Mod1+Tab workspace back_and_forth
+
 # Workspace names
 set $w1 1 :  browser
 set $w2 2 :  terminal
 set $w3 3 :  code
-set $w10 10 :  meet
 
 # Switch to workspace
 bindsym $mod+ampersand workspace $w1
@@ -50,7 +52,7 @@ bindsym $mod+minus workspace number 6
 bindsym $mod+egrave workspace number 7
 bindsym $mod+underscore workspace number 8
 bindsym $mod+ccedilla workspace number 9
-bindsym $mod+agrave workspace $w10
+bindsym $mod+agrave workspace number 10
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $w1
