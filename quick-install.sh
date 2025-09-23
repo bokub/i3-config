@@ -48,10 +48,20 @@ dunst \
 acpi \
 lm-sensors \
 playerctl
-:
+
 sudo add-apt-repository -y ppa:peek-developers/stable
 sudo apt update
 sudo apt install -y peek
+
+# Build and install i3xrocks from source
+sudo apt-get install -y 
+git clone https://github.com/regolith-linux/i3xrocks
+cd i3xrocks
+./autogen.sh
+./configure
+make
+make install
+cd .. && rm -fr i3xrocks
 
 # Build and install dunst from source
 sudo apt-get install -y libdbus-1-dev libx11-dev libxinerama-dev libxrandr-dev libxss-dev libglib2.0-dev libpango1.0-dev libgtk-3-dev libxdg-basedir-dev libnotify-dev
@@ -119,6 +129,9 @@ sudo rivalcfg --update-udev
 # Install zsh
 sudo apt install -y zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Install atuin
+bash <(curl https://raw.githubusercontent.com/ellie/atuin/main/install.sh)
 
 # Install Starship
 cd && wget https://starship.rs/install.sh -O install_starship.sh

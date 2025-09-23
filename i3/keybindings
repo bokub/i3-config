@@ -17,15 +17,13 @@ bindsym $mod+w exec "gnome-control-center --class=floating_window wifi"
 bindsym $mod+Return exec gnome-terminal
 
 # File explorer
-bindsym $mod+n exec "nautilus --class=floating_window -s ~/Screenshots/placeholder"
+bindsym $mod+n exec "nautilus -s ~/Screenshots/placeholder"
 
 # Audio output switcher
 set $speakers bluez_sink.34_75_63_DC_6D_E6.a2dp_sink
-# set $sink1 alsa_output.usb-C-Media_Electronics_Inc._USB_PnP_Sound_Device-00.analog-stereo
 set $headphones alsa_output.usb-Logitech_G_series_G435_Wireless_Gaming_Headset_202105190004-00.iec958-stereo
-# set $sink2 alsa_output.usb-Logitech_Logitech_G430_Gaming_Headset-00.analog-stereo
 set $source alsa_input.usb-Logitech_G_series_G435_Wireless_Gaming_Headset_202105190004-00.mono-fallback
-# set $source alsa_input.usb-Logitech_Logitech_G430_Gaming_Headset-00.mono-fallback
+set $bt 34:75:63:DC:6D:E6
 
 # If that doesn't work, run this and reboot:
 # gsettings set org.gnome.settings-daemon.plugins.media-keys rotate-video-lock-static "[]"
@@ -33,26 +31,16 @@ bindsym $mod+o exec --no-startup-id "if pactl info | grep -q $speakers; then \
 pacmd set-default-sink $headphones && pacmd set-default-source $source; else \
 pacmd set-default-sink $speakers; fi"
 
+bindsym $mod+b exec --no-startup-id bluetoothctl connect $bt;
+
 # Toggle touchpad
-set $touchpad 'SynPS/2 Synaptics TouchPad'
-bindsym $mod+t exec --no-startup-id "if xinput list-props $touchpad | grep 'Device Enabled' | grep -q '1'; then xinput disable $touchpad; else xinput enable $touchpad; fi"
+set $touchpad 'SYNA2393:00 06CB:7A13 Touchpad'
+bindsym $mod+t exec --no-startup-id "if xinput list-props $touchpad | grep 'Device Enabled' | grep -q '1'; then xinput disable $touchpad && notify-send 'Touchpad disabled'; else xinput enable $touchpad && && notify-send 'Touchpad enabled'; fi"
 
-# Configure mouse colors
-set $z1 FF0099
-set $z2 FF0033
-set $z3 FF3300
-exec_always --no-startup-id rivalcfg --z1 $z1 --z2 $z2 --z3 $z3
-bindsym $mod+Shift+m exec --no-startup-id rivalcfg --z1 $z1 --z2 $z2 --z3 $z3;
-
-# Start default apps with correct layouts
-bindsym $mod+m exec --no-startup-id google-chrome; \
+# Start default apps
+bindsym $mod+m exec --no-startup-id google-chrome-stable --force-device-scale-factor=$GDK_DPI_SCALE; \
 exec --no-startup-id webstorm; \
-workspace $w2; \
-exec "sh -c 'sleep 0.1; exec gnome-terminal'"; \
-exec "sh -c 'sleep 0.2; exec gnome-terminal'"; \
-workspace $w1; \
-exec --no-startup-id bluetoothctl connect 34:75:63:DC:6D:E6; \
-exec --no-startup-id rivalcfg --z1 $z1 --z2 $z2 --z3 $z3;
+exec --no-startup-id bluetoothctl connect $bt;
 
 # App launcher
 set $stylesheet /usr/share/regolith-look/dracula/ilia.css
@@ -69,4 +57,3 @@ bindsym Print exec "flameshot gui"
 # Notification controls
 bindsym ctrl+space exec --no-startup-id dunstctl close
 bindsym ctrl+shift+space exec --no-startup-id dunstctl close-all
-

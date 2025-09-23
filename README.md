@@ -88,14 +88,14 @@ sudo reboot
 	st = status -s
 	pl = pull
 	ps = "!git push --set-upstream origin $(git symbolic-ref --short HEAD)"
-	psn = "!git push --no-verify --set-upstream origin $(git symbolic-ref --short HEAD)"
-	psnf = "!git push --force --no-verify --set-upstream origin $(git symbolic-ref --short HEAD)"
+	psf = "!git ps --force"
+	prs = "!git pull -r && git ps"
 	reflog = reflog --date=iso
 	co = checkout
 	undo = reset --soft HEAD^
 	amend = commit --amend --no-edit
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	clean-branch = "!git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done"
+  clean-merged = "!git fetch -p && for branch in $(git branch -vv | grep -e ': gone]' -e ': disparue]' | awk '{print $1}'); do git branch -D $branch; done"
 
 [core]
 	excludesFile = ~/.gitignore

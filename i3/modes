@@ -21,7 +21,7 @@ bindsym $mod+r mode "Resize mode"
 # Quick Lauch mode
 set $mode_launch Chrome | Nautilus | Sublime | GoLand | WebStorm | Discord
 mode "$mode_launch" {
-    bindsym c exec --no-startup-id google-chrome; mode "default"
+    bindsym c exec --no-startup-id google-chrome-stable --force-device-scale-factor=$GDK_DPI_SCALE; mode "default"
     bindsym n exec --no-startup-id nautilus; mode "default"
     bindsym s exec --no-startup-id subl; mode "default"
     bindsym g exec --no-startup-id goland; mode "default"

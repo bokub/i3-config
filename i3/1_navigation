@@ -26,10 +26,6 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+Shift+b floating toggle
 
-# Change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-bindsym $mod+b focus mode_toggle
-
 # Move worspace on left or right screen
 bindsym $mod+j move workspace to output left
 bindsym $mod+k move workspace to output right

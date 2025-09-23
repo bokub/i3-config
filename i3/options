@@ -10,6 +10,8 @@ for_window [class="floating_window"] floating enable
 
 # Hide title bars & borders
 for_window [class="^.*"] border none
+for_window [class="google-chrome"] border none
+new_window 1pixel
 
 # Gaps size
 gaps inner 12

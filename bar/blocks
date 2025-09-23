@@ -53,7 +53,7 @@ command=~/.config/i3blocks/battery2/battery2
 interval=15
 
 [mouse]
-command=rivalcfg --battery-level | cut -f2 -d ']' | cut -c2-
+command=rivalcfg --battery-level | cut -f2 -d ']' | cut -c2- | sed 's/630 %/--/'
 interval=30
 label=<span font_desc="Font Awesome 6 Pro Solid">  </span>
 color=#c18dff
