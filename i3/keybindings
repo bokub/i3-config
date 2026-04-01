@@ -14,7 +14,7 @@ bindsym $mod+c exec "gnome-control-center --class=floating_window"
 bindsym $mod+w exec "gnome-control-center --class=floating_window wifi"
 
 # Terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec kitty
 
 # File explorer
 bindsym $mod+n exec "nautilus -s ~/Screenshots/placeholder"
@@ -53,6 +53,9 @@ bindsym $mod+$alt+l exec --no-startup-id regolith-look-selector -t $stylesheet
 
 # Screenshots
 bindsym Print exec "flameshot gui"
+
+# Peek
+bindsym $mod+p exec --no-startup-id "pkill -f picom & /usr/bin/peek -b ffmpeg"
 
 # Notification controls
 bindsym ctrl+space exec --no-startup-id dunstctl close

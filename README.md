@@ -28,6 +28,7 @@ It can be cloned anywhere you want, but you'll have to symlink each one of these
 | `bar/` | `~/.config/regolith2/i3rocks/conf.d` |
 | `dunstrc` | `~/.config/dunst/dunstrc` |
 | `Xresources` | `~/.config/regolith2/Xresources` |
+| `kitty.conf` | `~/.config/kitty/kitty.conf` |
 
 ## Dependencies
 

@@ -47,7 +47,8 @@ regolith-compositor-picom-glx \
 dunst \
 acpi \
 lm-sensors \
-playerctl
+playerctl \
+kitty
 
 sudo add-apt-repository -y ppa:peek-developers/stable
 sudo apt update
@@ -84,6 +85,8 @@ mkdir -p ~/.config/regolith2/i3xrocks
 ln -s ~/.i3-config/bar ~/.config/regolith2/i3xrocks/conf.d
 mkdir -p ~/.config/dunst
 ln -s ~/.i3-config/dunstrc ~/.config/dunst/dunstrc
+mkdir -p ~/.config/kitty
+ln -s ~/.i3-config/kitty.conf ~/.config/kitty/kitty.conf
 rm -f ~/.config/regolith2/Xresources && ln -s ~/.i3-config/Xresources ~/.config/regolith2/Xresources
 
 # Download and install font-awesome
